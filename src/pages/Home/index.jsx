@@ -4,7 +4,7 @@ import "./style.css"
 export function Home() {
 
   return (
-    <div className="App">
+    <div className="container">
      <h1>inciando projeto</h1>
     </div>
   )

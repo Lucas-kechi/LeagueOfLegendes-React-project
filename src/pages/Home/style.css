@@ -1,5 +1,8 @@
-.App {
+.container {
     background-color: aqua;
     height: 50vh;
     width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
