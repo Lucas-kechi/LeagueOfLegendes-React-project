@@ -1,0 +1,74 @@
+$header-buttons__background-color: rgb(0, 0, 0);
+$header-buttons__border: 3px gold solid;
+
+@mixin define-borders($border-value, $border-right, $border-left) {
+    border: $border-value;
+    
+    @if $border-right != '' {
+        border-right: $border-right;
+    }
+
+    @if $border-left != '' {
+        border-left: $border-left;
+    }
+}
+
+.container {
+    background-color: $header-buttons__background-color;
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-rows: 15vh 1fr 5vh;
+
+    main {
+        grid-area: main;
+    }
+    
+    footer {
+        grid-area: footer;
+        border: 1px red solid;
+    }
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px red solid;
+}
+
+.header__filterButtons {
+    button {
+        background-color: $header-buttons__background-color;
+        cursor: pointer;
+        transition: filter 0.2s;
+
+        &:hover {
+            filter: brightness(2.5);
+        }
+    }
+
+    .header__buttonTop {
+        @include define-borders($header-buttons__border, none, '');
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    
+    .header__buttonJungle {
+        @include define-borders($header-buttons__border, none, none);
+    }
+    
+    .header__buttonMid {
+        @include define-borders($header-buttons__border, none, none);
+    }
+    
+    .header__buttonSup {
+        @include define-borders($header-buttons__border, none, none);
+    }
+    
+    .header__buttonBot {
+        @include define-borders($header-buttons__border, '', none);
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+}

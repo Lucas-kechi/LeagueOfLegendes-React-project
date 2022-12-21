@@ -1,5 +1,5 @@
 // import { useState, useEffect } from 'react'
-import "./style.css"
+import "./style.scss"
 import topIco from "../../assets/Position_Challenger-Top.png"
 import jungleIco from "../../assets/Position_Challenger-Jungle.png"
 import midIco from "../../assets/Position_Challenger-Mid.png"
