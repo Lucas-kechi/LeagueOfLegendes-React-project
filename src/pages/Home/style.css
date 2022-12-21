@@ -1,8 +1,65 @@
 .container {
-    background-color: aqua;
-    height: 50vh;
-    width: 50vw;
+    background-color: black;
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-rows: 15vh 1fr 5vh;
+}
+
+.header {
+    grid-area: header;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-around;
+    border: 1px red solid;
+}
+
+.header__filterButtons button {
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.header__filterButtons button:hover {
+    filter: brightness(2.5);
+}
+
+.header__buttonTop {
+    border: 3px gold solid;
+    border-right: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.header__buttonJungle {
+    border: 3px gold solid;
+    border-right: none;
+    border-left: none;
+}
+
+.header__buttonMid {
+    border: 3px gold solid;
+    border-right: none;
+    border-left: none;
+}
+
+.header__buttonSup {
+    border: 3px gold solid;
+    border-right: none;
+    border-left: none;
+}
+
+.header__buttonBot {
+    border: 3px gold solid;
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.container main {
+    grid-area: main;
+}
+
+.container footer {
+    grid-area: footer;
+    border: 1px red solid;
 }

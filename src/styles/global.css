@@ -5,6 +5,7 @@
 }
 
 body, input, button {
+    color: antiquewhite;
     font-family: 'Chivo Mono', monospace;
 
     -webkit-font-smoothing: antialiased;
