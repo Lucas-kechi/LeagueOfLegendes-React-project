@@ -1,9 +1,15 @@
 import './style.scss'
+import githubSvg from "../../assets/github.svg"
 
 export function Footer() {
     return(
-        <footer>
-            <h1>footer</h1>
+        <footer className='footer'>
+            <h2>
+                Powered By Lucas Kechi
+                <a href="https://github.com/Lucas-kechi" target="_blank">
+                    <img src={githubSvg} alt="Github Icon" className='footer__ico'/>
+                </a>
+            </h2>
         </footer>
     )
 }

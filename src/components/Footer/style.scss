@@ -1,4 +1,14 @@
-footer {
+.footer {
     grid-area: footer;
-    border: 1px red solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .footer__ico {
+        height: 25px;
+        width: 25px;
+        background-color: aliceblue;
+        margin: 10px 0 0 15px;
+        border-radius: 20px;
+    }
 }

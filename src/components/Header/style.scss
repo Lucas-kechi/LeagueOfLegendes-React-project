@@ -18,7 +18,6 @@ $header-buttons__border: 3px gold solid;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    border: 1px red solid;
 }
 
 .header__filterButtons {
@@ -54,5 +53,37 @@ $header-buttons__border: 3px gold solid;
         @include define-borders($header-buttons__border, '', none);
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
+    }
+}
+
+.header__searchField {
+    .header__inputChampion {
+        width: 15vw;
+        height: 5vh;
+        color: black;
+        border-radius: 10px;
+        font-size: larger;
+        padding: 10px;
+        text-transform: uppercase;
+        margin-right: 30px;
+
+        &:focus {
+            outline: $header-buttons__border;
+        }
+    }
+
+    .header__buttonSearch {
+        color: gold;
+        text-transform: uppercase;
+        height: 4vh;
+        padding: 7px;
+        background-color: black;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: filter 0.2s;
+
+        &:hover {
+            filter: brightness(2.5);
+        }
     }
 }
