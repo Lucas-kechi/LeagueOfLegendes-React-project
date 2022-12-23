@@ -13,6 +13,10 @@ $header-buttons__border: 3px gold solid;
     }
 }
 
+.onclick {
+    filter: brightness(2.5);
+}
+
 .header {
     grid-area: header;
     display: flex;
@@ -31,28 +35,37 @@ $header-buttons__border: 3px gold solid;
         }
     }
 
-    .header__buttonTop {
+    .header__buttonFighter {
         @include define-borders($header-buttons__border, none, '');
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
     }
-    
-    .header__buttonJungle {
+
+    .header__buttonTank {
         @include define-borders($header-buttons__border, none, none);
     }
     
-    .header__buttonMid {
+    .header__buttonAssassins {
         @include define-borders($header-buttons__border, none, none);
     }
     
-    .header__buttonSup {
+    .header__buttonMage {
         @include define-borders($header-buttons__border, none, none);
     }
     
-    .header__buttonBot {
+    .header__buttonSupport {
+        @include define-borders($header-buttons__border, none, none);
+    }
+    
+    .header__buttonMarksman {
         @include define-borders($header-buttons__border, '', none);
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
+    }
+
+    img {
+        height: 10vh;
+        width: 10vh;
     }
 }
 
