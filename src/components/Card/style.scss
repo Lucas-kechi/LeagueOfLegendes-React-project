@@ -1,0 +1,30 @@
+.card {
+    height: 60vh;
+    width: 33vh;
+
+    margin: 6vh 3vh 6vh 3vh;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: 3px goldenrod solid;
+    padding: 0 0 5vh 2vh;
+    color: goldenrod;
+    font-weight: 900;
+    cursor: pointer;
+    transition: filter 0.2s;
+
+    &:hover {
+        filter: brightness(2.5);
+    }
+
+    .card__text {
+        width: fit-content;
+        background-color: rgba(0 ,0 ,0, 0.6);
+        border-radius: 10px;
+        padding: 10px;
+    }
+}
