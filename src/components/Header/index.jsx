@@ -1,4 +1,5 @@
 import './style.scss'
+import { useState } from 'react';
 
 export function Header() {
     const filterButtonsLogic = (btnId) => {
