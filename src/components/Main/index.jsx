@@ -1,11 +1,17 @@
 import { useState, useLayoutEffect } from 'react'
 import './style.scss'
 import { Card } from '../Card'
+import { useNavigate } from 'react-router-dom';
 
 export function Main() {
     const [championsList, setChampionsList] = useState({name: '', title: ''});
     const[finallyState, setFinallyState] = useState(true);
-    const championsKeys = Object.keys(championsList)
+    const championsKeys = Object.keys(championsList);
+    const navigate = useNavigate();
+    
+    const cardClickLogic = (championName) => {
+        navigate(`/champion/${championName}`)
+    }
   
     useLayoutEffect(() => {
         async function getApiAsync() {
@@ -25,7 +31,15 @@ export function Main() {
     return(
         <main>
             {
-                championsKeys.map(el => <Card name={championsList[el].name} title={championsList[el].title} img={championsList[el].image.full} key={championsKeys.indexOf(el)}/>)
+                championsKeys.map(el =>
+                    <Card 
+                        name={championsList[el].name} 
+                        title={championsList[el].title} 
+                        img={championsList[el].image.full} 
+                        key={el}
+                        onclickLogic={cardClickLogic}
+                    />
+                )
             }
         </main>
     )
