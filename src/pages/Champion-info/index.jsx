@@ -22,8 +22,10 @@ export function ChampionInfo() {
     }, [])
 
     if(apiRequestDontFinish) return "Loading..."
-    console.log(championInfo)
+    
     return(
-        <Header /> 
+        <div className="container" style={{color: 'black'}}>
+            {championInfo.name}
+        </div>
     )
 }
