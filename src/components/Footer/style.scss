@@ -1,4 +1,7 @@
+$footer__background-color: rgb(0, 0, 0);
+
 .footer {
+    background-color: $footer__background-color;
     grid-area: footer;
     display: flex;
     align-items: center;

@@ -18,6 +18,7 @@ $header-buttons__border: 3px gold solid;
 }
 
 .header {
+    background-color: $header-buttons__background-color;
     grid-area: header;
     display: flex;
     align-items: center;

@@ -1,10 +1,8 @@
-$header-buttons__background-color: rgb(0, 0, 0);
 $header-buttons__border: 3px gold solid;
 
 .container {
-    background-color: $header-buttons__background-color;
     display: grid;
     grid-template-areas: "header" "main" "footer";
-    grid-template-rows: 15vh 1fr 5vh;
+    grid-template-rows: 15vh 80vh 5vh;
 
 }

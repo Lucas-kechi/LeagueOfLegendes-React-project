@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import "./styles/global.scss"
 import {Home} from './pages/Home'
+import { ChampionInfo } from './pages/Champion-info'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -11,7 +12,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/champion/:id',
-    element: (<h1>Campeão aqui</h1>),
+    element: <ChampionInfo />,
   }
 ])
 
