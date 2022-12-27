@@ -4,6 +4,7 @@ import "./styles/global.scss"
 import {Home} from './pages/Home'
 import { ChampionInfo } from './pages/Champion-info'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import FilterProvider from './contexts/FilterContext'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <FilterProvider>
+      <RouterProvider router={router}/>
+    </FilterProvider>
   </React.StrictMode>,
 )

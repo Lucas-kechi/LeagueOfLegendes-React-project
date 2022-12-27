@@ -1,19 +1,23 @@
+import { useContext } from 'react';
+import { FilterContext } from '../../contexts/FilterContext';
 import './style.scss'
 
-export function Header(props) {
+export function Header() {
+   const { setActiveFilter } = useContext(FilterContext);
+
     const filterButtonsLogic = (btnId, event) => {
         const allButtons = document.querySelectorAll('.header__filterButtons button');
                 
         if(!btnId.classList.contains('onclick')) {
             allButtons.forEach(el => el.classList.remove('onclick'));
             btnId.classList.add('onclick');
-            props.onFilterButton(event.target.alt);     
+            setActiveFilter(event.target.alt);    
         }
         else if(btnId.classList.contains('onclick')) {
-            btnId.classList.remove('onclick');
-            props.onFilterButton('off');     
-        };
-    }
+            btnId.classList.remove('onclick'); 
+            setActiveFilter(null);
+        }
+    };
 
     return(
         <header className="header">
