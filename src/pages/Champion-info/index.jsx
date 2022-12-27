@@ -25,7 +25,7 @@ export function ChampionInfo() {
     
     return(
         <div className="container" style={{color: 'black'}}>
-            {championInfo.name}
+            <Header header='ok' />
         </div>
     )
 }

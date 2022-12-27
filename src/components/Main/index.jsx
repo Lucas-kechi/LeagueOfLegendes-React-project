@@ -3,11 +3,11 @@ import './style.scss'
 import { Card } from '../Card'
 import { useNavigate } from 'react-router-dom';
 
-export function Main() {
+export function Main(props) {
     const [championsList, setChampionsList] = useState({name: '', title: ''});
-    const[finallyState, setFinallyState] = useState(true);
-    const championsKeys = Object.keys(championsList);
+    const [finallyState, setFinallyState] = useState(true);
     const navigate = useNavigate();
+    let championsKeys = Object.keys(championsList);
     
     const cardClickLogic = (championName) => {
         navigate(`/champion/${championName}`)
@@ -25,9 +25,16 @@ export function Main() {
           .catch(error => console.error('Erro ao carregar a API', error))
           .finally(() => setFinallyState(false));
     }, [])
-  
-    if(finallyState) return ('loading...');
     
+    if(props.tagOnFilter) {
+        const championsFilterArray = Object.entries(championsList).filter(([key, value]) => value.tags.includes(props.tagOnFilter));
+        
+        championsKeys = Object.keys(Object.fromEntries(championsFilterArray));
+        console.log(props.tagOnFilter)
+    }
+    if(props.tagOnFilter == 'off') championsKeys = Object.keys(championsList);
+    if(finallyState) return ('loading...');
+
     return(
         <main>
             {
