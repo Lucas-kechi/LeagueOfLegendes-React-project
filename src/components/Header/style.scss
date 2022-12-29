@@ -1,17 +1,21 @@
+$header-elements__border-radius: 10px;
+$header-elements__text-transform: uppercase;
 $header-buttons__background-color: rgb(0, 0, 0);
 $header-buttons__border: 3px gold solid;
 
-@mixin define-borders($border-value, $border-right, $border-left) {
-    border: $border-value;
-    
-    @if $border-right != '' {
-        border-right: $border-right;
-    }
+$header-input__text-color: black;
+$header-input__width: 15vw;
+$header-input__height: 5vh;
+$header-input__font-size: larger;
+$header-input__padding: 10px;
+$header-input__margin-right: 30px;
 
-    @if $border-left != '' {
-        border-left: $border-left;
-    }
-}
+$header-button-search__text-color: gold;
+$header-button-search__height: 4vh;
+$header-button-search__padding: 7px;
+$header-button-search__transition: filter 0.2s;
+$header-button-search__hover-filter: brightness(2.5);
+$header-button-search__hover-disabled-filter: none;
 
 .onclick {
     filter: brightness(2.5);
@@ -25,61 +29,16 @@ $header-buttons__border: 3px gold solid;
     justify-content: space-around;
 }
 
-.header__filterButtons {
-    button {
-        background-color: $header-buttons__background-color;
-        cursor: pointer;
-        transition: filter 0.2s;
-
-        &:hover {
-            filter: brightness(2.5);
-        }
-    }
-
-    .header__buttonFighter {
-        @include define-borders($header-buttons__border, none, '');
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-    }
-
-    .header__buttonTank {
-        @include define-borders($header-buttons__border, none, none);
-    }
-    
-    .header__buttonAssassins {
-        @include define-borders($header-buttons__border, none, none);
-    }
-    
-    .header__buttonMage {
-        @include define-borders($header-buttons__border, none, none);
-    }
-    
-    .header__buttonSupport {
-        @include define-borders($header-buttons__border, none, none);
-    }
-    
-    .header__buttonMarksman {
-        @include define-borders($header-buttons__border, '', none);
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
-
-    img {
-        height: 10vh;
-        width: 10vh;
-    }
-}
-
 .header__searchField {
     .header__inputChampion {
-        width: 15vw;
-        height: 5vh;
-        color: black;
-        border-radius: 10px;
-        font-size: larger;
-        padding: 10px;
-        text-transform: uppercase;
-        margin-right: 30px;
+        width: $header-input__width;
+        height: $header-input__height;
+        color: $header-input__text-color;
+        border-radius: $header-elements__border-radius;
+        font-size: $header-input__font-size;
+        padding: $header-input__padding;
+        text-transform: $header-elements__text-transform;
+        margin-right: $header-input__margin-right;
 
         &:focus {
             outline: $header-buttons__border;
@@ -87,17 +46,22 @@ $header-buttons__border: 3px gold solid;
     }
 
     .header__buttonSearch {
-        color: gold;
-        text-transform: uppercase;
-        height: 4vh;
-        padding: 7px;
-        background-color: black;
-        border-radius: 10px;
+        color: $header-button-search__text-color;
+        text-transform: $header-elements__text-transform;
+        height: $header-button-search__height;
+        padding: $header-button-search__padding;
+        background-color: $header-buttons__background-color;
+        border-radius: $header-elements__border-radius;
         cursor: pointer;
-        transition: filter 0.2s;
+        transition: filter $header-button-search__transition;
 
-        &:hover {
-            filter: brightness(2.5);
+        &:hover:not(:disabled) {
+            filter: $header-button-search__hover-filter;
+        }
+
+        &:disabled {
+            cursor: default;
+            filter: $header-button-search__hover-disabled-filter;
         }
     }
 }
