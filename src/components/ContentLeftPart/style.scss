@@ -1,0 +1,12 @@
+
+
+.leftPart {
+    grid-area: left-part;
+    padding: 5vh;
+
+    .leftPart__divContent{
+        height: 85vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50px;
+    }
+}

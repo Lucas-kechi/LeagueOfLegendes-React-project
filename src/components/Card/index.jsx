@@ -8,7 +8,7 @@ export function Card(props) {
             <div 
                 style={{backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${imageName[0]}_0.jpg)`}} 
                 className="card" 
-                onClick={() => props.onclickLogic(props.name)}
+                onClick={() => props.onclickLogic(props.id)}
             >
                 <div className='card__text'>
                     <h2>
@@ -26,7 +26,7 @@ export function Card(props) {
         <div 
             style={{backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${imageName[0]}_0.jpg)`}} 
             className="card"
-            onClick={() => props.onclickLogic(props.name)}
+            onClick={() => props.onclickLogic(props.id)}
         >
             <div className='card__text'>
                 <h2>

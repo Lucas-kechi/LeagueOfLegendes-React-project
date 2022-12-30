@@ -1,0 +1,10 @@
+.content {
+    height: 95vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: grid;
+    grid-template-areas: "left-part right-part";
+    grid-template-rows: 95vh;
+    grid-template-columns: 35vw 65vw;
+}

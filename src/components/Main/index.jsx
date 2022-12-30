@@ -7,12 +7,13 @@ import { FilterContext } from "../../contexts/FilterContext";
 export function Main() {
   const [championsList, setChampionsList] = useState([]);
   const [finallyState, setFinallyState] = useState(true);
-  const { activeFilter } = useContext(FilterContext);
+  const { activeFilter, setActiveFilter } = useContext(FilterContext);
   let championsAfterFilter = championsList;
   const navigate = useNavigate();
 
   const cardClickLogic = (championName) => {
     navigate(`/champion/${championName}`);
+    setActiveFilter(null);
   };
 
   championsAfterFilter = championsList?.filter((champion) => activeFilter ? champion.tags.includes(activeFilter) || champion.name.toLowerCase().includes(activeFilter) : champion);
@@ -32,9 +33,9 @@ export function Main() {
       .catch((error) => console.error("Erro ao carregar a API", error))
       .finally(() => setFinallyState(false));
   }, []);
-
+  
   if (finallyState) return "loading...";
-
+  
   if(championsAfterFilter.length === 0) {
     alert('Campeão inserido não encontrado!');
     return(
@@ -46,6 +47,7 @@ export function Main() {
             title={el.title}
             img={el.image.full}
             key={el.key}
+            id={el.id}
             onclickLogic={cardClickLogic}
           />
         ))
@@ -63,6 +65,7 @@ export function Main() {
             title={el.title}
             img={el.image.full}
             key={el.key}
+            id={el.id}
             onclickLogic={cardClickLogic}
           />
         ))
