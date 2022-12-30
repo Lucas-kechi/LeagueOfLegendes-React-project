@@ -1,8 +1,24 @@
-.card {
-    height: 60vh;
-    width: 33vh;
+$card__height: 60vh;
+$card__width: 33vh;
+$card__margin: 3vh 3vh 3vh 3vh;
+$card__border: 3px goldenrod solid;
+$card__padding: 0 0 5vh 2vh;
+$card__text-color: goldenrod;
+$card__font-weight: 900;
+$card__transition: filter 0.2s;
+$card__hover-filter: brightness(2.5);
 
-    margin: 3vh 3vh 3vh 3vh;
+
+$card-text__width: fit-content;
+$card-text__background-color: rgba(0, 0, 0, 0.6);
+$card-text__border-radius: 10px;
+$card-text__padding: 10px;
+
+.card {
+    height: $card__height;
+    width: $card__width;
+
+    margin: $card__margin;
 
     background-repeat: no-repeat;
     background-size: cover;
@@ -10,21 +26,21 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    border: 3px goldenrod solid;
-    padding: 0 0 5vh 2vh;
-    color: goldenrod;
-    font-weight: 900;
+    border: $card__border;
+    padding: $card__padding;
+    color: $card__text-color;
+    font-weight: $card__font-weight;
     cursor: pointer;
-    transition: filter 0.2s;
+    transition: $card__transition;
 
     &:hover {
-        filter: brightness(2.5);
+        filter: $card__hover-filter;
     }
 
     .card__text {
-        width: fit-content;
-        background-color: rgba(0 ,0 ,0, 0.6);
-        border-radius: 10px;
-        padding: 10px;
+        width: $card-text__width;
+        background-color: $card-text__background-color;
+        border-radius: $card-text__border-radius;
+        padding: $card-text__padding;
     }
 }

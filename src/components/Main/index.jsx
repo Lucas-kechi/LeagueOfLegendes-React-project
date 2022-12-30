@@ -5,15 +5,17 @@ import { useNavigate } from "react-router-dom";
 import { FilterContext } from "../../contexts/FilterContext";
 
 export function Main() {
-  const [championsList, setChampionsList] = useState({ name: "", title: "" });
+  const [championsList, setChampionsList] = useState([]);
   const [finallyState, setFinallyState] = useState(true);
   const { activeFilter } = useContext(FilterContext);
-
+  let championsAfterFilter = championsList;
   const navigate = useNavigate();
 
   const cardClickLogic = (championName) => {
     navigate(`/champion/${championName}`);
   };
+
+  championsAfterFilter = championsList?.filter((champion) => activeFilter ? champion.tags.includes(activeFilter) || champion.name.includes(activeFilter) : champion);
 
   useEffect(() => {
     async function getApiAsync() {
@@ -33,13 +35,12 @@ export function Main() {
 
   if (finallyState) return "loading...";
 
-  return (
-    <main>
-      {championsList
-        ?.filter((champion) =>
-          activeFilter ? champion.tags.includes(activeFilter) : champion
-        )
-        .map((el) => (
+  if(championsAfterFilter.length === 0) {
+    alert('Campeão inserido não encontrado!');
+    return(
+      <main>
+      { 
+        championsList.map((el) => (
           <Card
             name={el.name}
             title={el.title}
@@ -47,7 +48,25 @@ export function Main() {
             key={el.key}
             onclickLogic={cardClickLogic}
           />
-        ))}
+        ))
+      }
+    </main>
+    )
+  }
+
+  return (
+    <main>
+      { 
+        championsAfterFilter.map((el) => (
+          <Card
+            name={el.name}
+            title={el.title}
+            img={el.image.full}
+            key={el.key}
+            onclickLogic={cardClickLogic}
+          />
+        ))
+      }
     </main>
   );
 }

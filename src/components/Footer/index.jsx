@@ -7,7 +7,7 @@ export function Footer() {
             <h2>
                 Powered By Lucas Kechi
                 <a href="https://github.com/Lucas-kechi" target="_blank">
-                    <img src={githubSvg} alt="Github Icon" className='footer__ico'/>
+                    <img src={githubSvg} alt="Github Icon" className='footer__icon'/>
                 </a>
             </h2>
         </footer>

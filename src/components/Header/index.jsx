@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useContext } from 'react';
 import { FilterContext } from '../../contexts/FilterContext';
 import { FilterButtons } from '../FilterButtonsHeader';
@@ -5,6 +6,8 @@ import './style.scss'
 
 export function Header() {
     const { setActiveFilter } = useContext(FilterContext);
+    const allButtons = document.querySelectorAll('.header__filterButtons button');
+
     const buttonContentProps = [
         {Fighter: '8/8f', imgTag: 'Fighter'},
         {Tank: '5/5a', imgTag: 'Tank'},
@@ -15,11 +18,10 @@ export function Header() {
     ];
 
     const filterButtonsLogic = (event) => {
-        const allButtons = document.querySelectorAll('.header__filterButtons button');
-        
         if(!event.path[1].classList.contains('onclick')) {
             allButtons.forEach(el => el.classList.remove('onclick'));
             event.path[1].classList.add('onclick');
+            inputChampion.value = '';
             setActiveFilter(event.target.alt);    
         }
         else if(event.path[1].classList.contains('onclick')) {
@@ -29,8 +31,28 @@ export function Header() {
     };
 
     const onKeyUpFromInput = (event) => {
-        event.target.value ? inputsButton.removeAttribute('disabled') : inputsButton.setAttribute('disabled', 'disabled')
+        if(event.target.value) {
+            inputsButton.disabled = false;
+        }
+        else {
+            inputsButton.disabled = true;
+
+        }
+    };
+
+    const onFocusFromInput = (event) => {
+        allButtons.forEach(el => el.classList.remove('onclick'));
+        event.target.value = '';
+        inputsButton.disabled = true;
+        setActiveFilter(null);
+    };
+
+    const onClickInputsButton = () => {
+        const championNameFirstLetterUperCase = inputChampion.value[0].toUpperCase() + inputChampion.value.substring(1);
+        setActiveFilter(championNameFirstLetterUperCase);
     }
+
+    useEffect(() => {inputsButton.disabled = true}, []);
 
     return(
         <header className="header">
@@ -54,12 +76,13 @@ export function Header() {
                     placeholder='Nome do Campeão'
                     id='inputChampion'
                     onKeyUp={() => onKeyUpFromInput(event)}
+                    onFocus={() => onFocusFromInput(event)}
                 />
                 <button 
                     type='button' 
                     className='header__buttonSearch'
                     id='inputsButton'
-                    disabled
+                    onClick={onClickInputsButton}
                 >
                     Pesquisar
                 </button>
