@@ -31,13 +31,13 @@ export function Header() {
     };
 
     const onKeyUpFromInput = (event) => {
-        if(event.target.value) {
-            inputsButton.disabled = false;
-        }
+        if(event.target.value) inputsButton.disabled = false;
         else {
             inputsButton.disabled = true;
-
+            setActiveFilter(null);
         }
+
+        if(event.key === "Enter") inputsButton.click();
     };
 
     const onFocusFromInput = (event) => {
@@ -48,7 +48,7 @@ export function Header() {
     };
 
     const onClickInputsButton = () => {
-        const championNameFirstLetterUperCase = inputChampion.value[0].toUpperCase() + inputChampion.value.substring(1);
+        const championNameFirstLetterUperCase = inputChampion.value;
         setActiveFilter(championNameFirstLetterUperCase);
     }
 

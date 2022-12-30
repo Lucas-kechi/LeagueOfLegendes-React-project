@@ -15,7 +15,7 @@ export function Main() {
     navigate(`/champion/${championName}`);
   };
 
-  championsAfterFilter = championsList?.filter((champion) => activeFilter ? champion.tags.includes(activeFilter) || champion.name.includes(activeFilter) : champion);
+  championsAfterFilter = championsList?.filter((champion) => activeFilter ? champion.tags.includes(activeFilter) || champion.name.toLowerCase().includes(activeFilter) : champion);
 
   useEffect(() => {
     async function getApiAsync() {
