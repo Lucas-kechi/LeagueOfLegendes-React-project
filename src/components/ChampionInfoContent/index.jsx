@@ -30,7 +30,9 @@ export function ChampionInfoContent() {
     // 
     return(
         <div className="content" style={{backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championInfo.image}_0.jpg)`}}>
-            <ContentLeftPart />
+            <ContentLeftPart 
+                img={championInfo.image}
+            />
             <ContentRightPart />
         </div>
     )
