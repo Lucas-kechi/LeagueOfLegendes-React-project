@@ -8,15 +8,38 @@
         height: 85vh;
         background-color: rgba(0, 0, 0, 0.5);
         border-radius: 50px;
+        padding: 5%;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
 
-        .leftPart__image {
-            height: 50vh;
-            width: 40vh;
+        
+        .leftPart__contentTop {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            .leftPart__image {
+                height: 50vh;
+                width: 40vh;
+            }
+            
+            .leftPart__contentTop__buttonLeft {
+                height: fit-content;
+                width: fit-content;
+                border-radius: 8px;
+                outline: none;
+            }
+
+            .leftPart__contentTop__buttonRight {
+                height: fit-content;
+                width: fit-content;
+                border-radius: 8px;
+                outline: none;
+            }
         }
     }
 }
