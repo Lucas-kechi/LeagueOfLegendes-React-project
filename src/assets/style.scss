@@ -1,4 +1,4 @@
-$Svgs-arrows__background-color: rgba(0, 0, 0, 0.1);
+$Svgs-arrows__background-color: rgba(0, 0, 0, 0);
 $Svgs-arrows__color: gold;
 
 .left-arrow {
@@ -7,6 +7,11 @@ $Svgs-arrows__color: gold;
 }
 
 .right-arrow {
+  background-color: $Svgs-arrows__background-color;
+  color: $Svgs-arrows__color;
+}
+
+.back-arrow {
   background-color: $Svgs-arrows__background-color;
   color: $Svgs-arrows__color;
 }

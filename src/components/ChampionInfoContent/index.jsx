@@ -1,6 +1,6 @@
 import './style.scss'
 import { useEffect, useState } from "react"
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { ContentLeftPart } from '../ContentLeftPart';
 import { ContentRightPart } from '../ContentRightPart';
 
@@ -10,6 +10,7 @@ export function ChampionInfoContent() {
     const [ apiRequestDontFinish, setApiRequestDontFinish ] = useState(true);
     const [ skinIndex, setSkinIndex ] = useState(0);
     const [ imagesAsync, setImagesAsync] = useState({splash: '', loading: ''});
+    const navigate = useNavigate();
 
     const handleSkinsOnleftPartButtons = (event) => {
         if(event.target.classList[0] === 'left-arrow') {
@@ -22,7 +23,11 @@ export function ChampionInfoContent() {
 
     const handleSkinsName = () => {
         if(skinIndex === 0) return championInfo.name
-        else return imagesAsync.championName
+        else return imagesAsync.championName === 'default' ? 'Loading...' : imagesAsync.championName
+    }
+
+    const backButtonLogic = () => {
+        navigate('/');
     }
 
     useEffect(() => {
@@ -67,7 +72,8 @@ export function ChampionInfoContent() {
         <div className="content" style={{backgroundImage: `url(${imagesAsync.splash})`}}>
             <ContentLeftPart 
                 img={imagesAsync.loading}
-                onclick={handleSkinsOnleftPartButtons}
+                buttonsImageLogic={handleSkinsOnleftPartButtons}
+                backButton={backButtonLogic}
             />
             <ContentRightPart name={handleSkinsName()}/>
         </div>
