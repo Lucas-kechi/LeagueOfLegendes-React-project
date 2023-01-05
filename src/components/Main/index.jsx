@@ -3,6 +3,7 @@ import "./style.scss";
 import { Card } from "../Card";
 import { useNavigate } from "react-router-dom";
 import { FilterContext } from "../../contexts/FilterContext";
+import { Loading } from "../Loading";
 
 export function Main() {
   const [championsList, setChampionsList] = useState([]);
@@ -34,7 +35,7 @@ export function Main() {
       .finally(() => setFinallyState(false));
   }, []);
   
-  if (finallyState) return "loading...";
+  if (finallyState) return <Loading />;
   
   if(championsAfterFilter.length === 0) {
     alert('Campeão inserido não encontrado!');

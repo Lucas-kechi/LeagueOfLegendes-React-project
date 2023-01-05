@@ -26,7 +26,6 @@ export function ContentLeftPart(props) {
                         <IconRightArrow height='3rem' width='3rem'/>
                     </button>
                 </div>
-                
             </div>
         </section>
     )

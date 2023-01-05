@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from 'react-router-dom'
 import { ContentLeftPart } from '../ContentLeftPart';
 import { ContentRightPart } from '../ContentRightPart';
+import { Loading } from '../Loading';
 
 export function ChampionInfoContent() {
     const urlParameter = useParams();
@@ -10,6 +11,7 @@ export function ChampionInfoContent() {
     const [ apiRequestDontFinish, setApiRequestDontFinish ] = useState(true);
     const [ skinIndex, setSkinIndex ] = useState(0);
     const [ imagesAsync, setImagesAsync] = useState({splash: '', loading: ''});
+    const [ loadingApi, setLoadingApi ] = useState(true)
     const navigate = useNavigate();
 
     const handleSkinsOnleftPartButtons = (event) => {
@@ -51,6 +53,8 @@ export function ChampionInfoContent() {
     useEffect(() => {
         if(championInfo) {
             const splashAndLoadingImageAssync = async () => {
+                setLoadingApi(true);
+
                 const SplashResponse = await fetch(`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championInfo.image}_${championInfo.skins[skinIndex].num}.jpg`);
                 const LoadingResponse = await fetch(`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${championInfo.image}_${championInfo.skins[skinIndex].num}.jpg`);
 
@@ -62,11 +66,12 @@ export function ChampionInfoContent() {
             }
     
             splashAndLoadingImageAssync()
-                .catch(error => console.error("Erro ao carregar a Api", error));
+                .catch(error => console.error("Erro ao carregar a Api", error))
+                .finally(() => setLoadingApi(false));
         }
     }, [championInfo, skinIndex])
 
-    if(apiRequestDontFinish) return "Loading..."
+    if(apiRequestDontFinish) return <Loading />
     
     return(
         <div className="content" style={{backgroundImage: `url(${imagesAsync.splash})`}}>
@@ -75,7 +80,10 @@ export function ChampionInfoContent() {
                 buttonsImageLogic={handleSkinsOnleftPartButtons}
                 backButton={backButtonLogic}
             />
-            <ContentRightPart name={handleSkinsName()}/>
+            <ContentRightPart 
+                name={handleSkinsName()}
+                request={loadingApi}
+            />
         </div>
     )
 }

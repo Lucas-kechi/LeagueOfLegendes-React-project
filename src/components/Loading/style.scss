@@ -1,0 +1,32 @@
+$modal-loading__hight-width: 100%;
+$modal-loading__background-color:  rgba(30, 30, 30, 0.3);
+
+$modal-loading-div__hight-width: 20vh;
+$modal-loading-div__border: 6px solid #e5e5e5;
+$modal-loading-div__border-top-color: #51d4db;
+$modal-loading-div__border-radius: 50%;
+
+.modal-loading {
+  position: absolute;
+  height: $modal-loading__hight-width;
+  width: $modal-loading__hight-width;
+  background-color: $modal-loading__background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-loading__div {
+  animation: is-rotating 1s infinite;
+  height: $modal-loading-div__hight-width;
+  width: $modal-loading-div__hight-width;
+  border: $modal-loading-div__border;
+  border-top-color: $modal-loading-div__border-top-color;
+  border-radius: $modal-loading-div__border-radius;
+}
+
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
+}
