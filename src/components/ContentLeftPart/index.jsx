@@ -1,5 +1,5 @@
 import './style.scss'
-import { IconLeftArrow, IconRightArrow, IconBackArrow } from '../../assets/svgsAsComponents.jsx'
+import { IconLeftArrow, IconRightArrow, IconBackArrow, IconDashCircle, IconPlusCircle } from '../../assets/svgsAsComponents.jsx'
 
 export function ContentLeftPart(props) {
     return(
@@ -25,6 +25,27 @@ export function ContentLeftPart(props) {
                     >
                         <IconRightArrow height='3rem' width='3rem'/>
                     </button>
+                </div>
+                <div className="leftPart__contentBottom">
+                    <div className="leftPart__contentBottom__lvlPainel">
+                        <button className='leftPart__lvlPainel__buttonDash'>
+                            <IconDashCircle height='1rem' width='1rem'/>
+                        </button>
+                        <input 
+                            type="text"
+                            id="ChampionLvl"
+                            name='ChampionLvl'
+                            className='leftPart__lvlPainel__input'
+                            value={1}
+                            readOnly
+                        />
+                        <button className='leftPart__lvlPainel__buttonPlus'>
+                            <IconPlusCircle height='1rem' width='1rem'/>
+                        </button>
+                    </div>
+                    <div className="leftPart__contentBottom__Info">
+                        
+                    </div>
                 </div>
             </div>
         </section>

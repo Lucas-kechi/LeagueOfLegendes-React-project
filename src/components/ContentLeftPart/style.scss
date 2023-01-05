@@ -1,56 +1,104 @@
+$leftPart-and-contentTop-bottom__width: 100%;
+
 $leftPart-buttons__background-color: rgba(0, 0, 0, 0);
+$leftPart-buttons__border-radius: 8px;
+$leftPart-buttons__height-width: fit-content;
+$leftPart-buttons__outline: none;
+$leftPart-back-button__height-width: 5vh;
+$leftPart-divContent__margin: 5vh 5vh 5vh 0;
+$leftPart-divContent__height: 85vh;
+$leftPart-divContent__width: 90%;
+$leftPart-divContent__background-color: rgba(0, 0, 0, 0.5);
+$leftPart-divContent__border-radius: 50px;
+$leftPart-divContent__padding: 5%;
+$leftPart-image__height: 50vh;
+$leftPart-image__width: 40vh;
+$leftPart-contentBottom-lvlPainel-buttons__border-radius: 50%;
+
+@mixin leftPart-buttons($painelLvl) {
+    height: $leftPart-buttons__height-width;
+    width: $leftPart-buttons__height-width;
+    outline: $leftPart-buttons__outline;
+    background-color: $leftPart-buttons__background-color;
+    border-radius: $leftPart-buttons__border-radius;
+
+    @if $painelLvl {
+        border-radius: $leftPart-contentBottom-lvlPainel-buttons__border-radius;
+    }
+}
 
 .leftPart {
     grid-area: left-part;
     display: flex;
-    width: 100%;
+
+    width: $leftPart-and-contentTop-bottom__width;
 
     .back-button {
-        height: 5vh;
-        width: 5vh;
+        height: $leftPart-back-button__height-width;
+        width: $leftPart-back-button__height-width;
         background-color: $leftPart-buttons__background-color;
+
         border: none;
     }
 
     .leftPart__divContent{
-        margin: 5vh 5vh 5vh 0;
-        width: 90%;
-        height: 85vh;
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 50px;
-        padding: 5%;
+        margin: $leftPart-divContent__margin;
+        width: $leftPart-divContent__width;
+        height: $leftPart-divContent__height;
+        background-color: $leftPart-divContent__background-color;
+        border-radius: $leftPart-divContent__border-radius;
+        padding: $leftPart-divContent__padding;
 
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
 
-        
         .leftPart__contentTop {
-            width: 100%;
+            width: $leftPart-and-contentTop-bottom__width;
             display: flex;
             align-items: center;
             justify-content: space-around;
 
             .leftPart__image {
-                height: 50vh;
-                width: 40vh;
+                height: $leftPart-image__height;
+                width: $leftPart-image__width;
             }
             
             .leftPart__contentTop__buttonLeft {
-                height: fit-content;
-                width: fit-content;
-                border-radius: 8px;
-                outline: none;
-                background-color: $leftPart-buttons__background-color;
+                @include leftPart-buttons(false)
             }
 
             .leftPart__contentTop__buttonRight {
-                height: fit-content;
-                width: fit-content;
-                border-radius: 8px;
-                outline: none;
-                background-color: $leftPart-buttons__background-color;
+                @include leftPart-buttons(false)
+            }
+        }
+
+        .leftPart__contentBottom {
+            width: $leftPart-and-contentTop-bottom__width;
+            margin-top: 1vh;
+
+            .leftPart__contentBottom__lvlPainel {
+                display: flex;
+                justify-content: center;
+
+                .leftPart__lvlPainel__buttonDash {
+                    @include leftPart-buttons(true);
+                }
+
+                .leftPart__lvlPainel__input {
+                    width: 3vh;
+                    color: black;
+                    text-align: center;
+
+                    &:focus {
+                        outline: none;
+                        cursor: default;
+                    }
+                }
+
+                .leftPart__lvlPainel__buttonPlus {
+                    @include leftPart-buttons(true)
+                }
             }
         }
     }

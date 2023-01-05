@@ -1,17 +1,27 @@
 $Svgs-arrows__background-color: rgba(0, 0, 0, 0);
 $Svgs-arrows__color: gold;
 
-.left-arrow {
+@mixin icons-colors {
   background-color: $Svgs-arrows__background-color;
   color: $Svgs-arrows__color;
+}
+
+.left-arrow {
+  @include icons-colors()
 }
 
 .right-arrow {
-  background-color: $Svgs-arrows__background-color;
-  color: $Svgs-arrows__color;
+  @include icons-colors()
 }
 
 .back-arrow {
-  background-color: $Svgs-arrows__background-color;
-  color: $Svgs-arrows__color;
+  @include icons-colors()
+}
+
+.dash-circle {
+  @include icons-colors()
+}
+
+.plus-circle {
+  @include icons-colors()
 }
