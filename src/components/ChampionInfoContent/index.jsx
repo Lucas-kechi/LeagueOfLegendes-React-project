@@ -10,28 +10,36 @@ export function ChampionInfoContent() {
     const [ championInfo, setChampionInfo ] = useState();
     const [ apiRequestDontFinish, setApiRequestDontFinish ] = useState(true);
     const [ skinIndex, setSkinIndex ] = useState(0);
-    const [ imagesAsync, setImagesAsync] = useState({splash: '', loading: ''});
-    const [ loadingApi, setLoadingApi ] = useState(true)
+    const [ infoChampAsync, setInfoChampAsync] = useState({splash: '', loading: ''});
+    const [ loadingApi, setLoadingApi ] = useState(true);
+    const [ numberPerLevel, setNumberPerLevel ] = useState(0);
     const navigate = useNavigate();
-
+    
     const handleSkinsOnleftPartButtons = (event) => {
         if(event.target.classList[0] === 'left-arrow') {
             skinIndex === 0 ? setSkinIndex(championInfo.skins.length - 1) : setSkinIndex(skinIndex - 1);
         } else{
             skinIndex === championInfo.skins.length - 1 ? setSkinIndex(0) : setSkinIndex(skinIndex + 1)
         }
-
     }
 
     const handleSkinsName = () => {
         if(skinIndex === 0) return championInfo.name
-        else return imagesAsync.championName === 'default' ? 'Loading...' : imagesAsync.championName
+        else return infoChampAsync.championName === 'default' ? 'Loading...' : infoChampAsync.championName
     }
 
     const backButtonLogic = () => {
         navigate('/');
     }
 
+    const buttonsFromPainelLevelLogic = (event) => {
+        const buttonTarget = event.path.filter(el => el.className === 'leftPart__lvlPainel__buttonDash' || el.className === 'leftPart__lvlPainel__buttonPlus');
+        
+        if(buttonTarget[0].className == 'leftPart__lvlPainel__buttonPlus') ChampionLvl.value >= 18 ? ChampionLvl.value = 18 : setNumberPerLevel(prevState => ++prevState)
+        else ChampionLvl.value <= 1 ? ChampionLvl.value = 1 : setNumberPerLevel(prevState => --prevState)
+
+    }
+    
     useEffect(() => {
         const fetchAssync = async () => {
             const response = await fetch(`http://ddragon.leagueoflegends.com/cdn/12.23.1/data/pt_BR/champion/${urlParameter.id}.json`);
@@ -42,43 +50,64 @@ export function ChampionInfoContent() {
                 title: data.data[urlParameter.id].title,
                 image: data.data[urlParameter.id].image.full.split('.')[0],
                 skins: data.data[urlParameter.id].skins,
+                stats: Object.entries(data.data[urlParameter.id].stats),
             })
         }
 
         fetchAssync()
             .catch(error => console.error("Erro ao carregar a Api", error))
-            .finally(() => setApiRequestDontFinish(false));
     }, [])
 
     useEffect(() => {
         if(championInfo) {
-            const splashAndLoadingImageAssync = async () => {
+            const champInfo = async () => {
                 setLoadingApi(true);
 
                 const SplashResponse = await fetch(`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championInfo.image}_${championInfo.skins[skinIndex].num}.jpg`);
                 const LoadingResponse = await fetch(`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${championInfo.image}_${championInfo.skins[skinIndex].num}.jpg`);
-
-                setImagesAsync({
+                
+                const championStatsPerLevel = Object.fromEntries(championInfo.stats.filter(([key, value]) => key.includes('perlevel')));
+                const championStats = Object.fromEntries(championInfo.stats.filter(([key, value]) => !key.includes('perlevel')));
+                
+                setInfoChampAsync({
                     splash: SplashResponse.url,
                     loading: LoadingResponse.url,
                     championName: championInfo.skins[skinIndex].name,
+                    stats: [
+                        ['HP', (championStats.hp + numberPerLevel * championStatsPerLevel.hpperlevel)],
+                        ['MP', (championStats.mp + numberPerLevel * championStatsPerLevel.mpperlevel)],
+                        ['ATK', (championStats.attackdamage + numberPerLevel * championStatsPerLevel.attackdamageperlevel)],
+                        ['AMR', (championStats.armor + numberPerLevel * championStatsPerLevel.armorperlevel)],
+                        ['MR', (championStats.spellblock + numberPerLevel * championStatsPerLevel.spellblockperlevel)],
+                        ['Move Speed', championStats.movespeed],
+                        ['ATK Speed', (championStats.attackspeed + numberPerLevel * championStatsPerLevel.attackspeedperlevel)],
+                        ['ATK Range', championStats.attackrange],
+                        ['HP Regen', (championStats.hpregen + numberPerLevel * championStatsPerLevel.hpregenperlevel)],
+                        ['MP Regen', (championStats.mpregen + numberPerLevel * championStatsPerLevel.mpregenperlevel)]
+                    ],
                 })
             }
     
-            splashAndLoadingImageAssync()
+            champInfo()
                 .catch(error => console.error("Erro ao carregar a Api", error))
-                .finally(() => setLoadingApi(false));
+                .finally(() => {
+                    setLoadingApi(false);
+                    setApiRequestDontFinish(false)
+                });
         }
-    }, [championInfo, skinIndex])
-
-    if(apiRequestDontFinish) return <Loading />
+    }, [championInfo, skinIndex, numberPerLevel])
     
+    if(apiRequestDontFinish) return <Loading />
+
     return(
-        <div className="content" style={{backgroundImage: `url(${imagesAsync.splash})`}}>
+        <div className="content" style={{backgroundImage: `url(${infoChampAsync.splash})`}}>
             <ContentLeftPart 
-                img={imagesAsync.loading}
+                img={infoChampAsync.loading}
                 buttonsImageLogic={handleSkinsOnleftPartButtons}
                 backButton={backButtonLogic}
+                buttonsPainelLogic={buttonsFromPainelLevelLogic}
+                levelRef={numberPerLevel}
+                statsPerLevel={infoChampAsync.stats}
             />
             <ContentRightPart 
                 name={handleSkinsName()}

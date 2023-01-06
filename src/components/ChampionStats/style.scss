@@ -1,0 +1,18 @@
+$stats__color: gold;
+$stats__margin: .4vh 5vh 0 0;
+$stats__font-size: 1.5vw;
+$stats__width: max-content;
+
+.stats {
+  width: $stats__width;
+  margin: $stats__margin;
+  color: $stats__color;
+  font-size: $stats__font-size;
+  background-color: red;
+
+  .stats__value{
+    width: 50vw;
+    background-color: blue;
+    padding: 0 .5vh;
+  }
+}

@@ -14,6 +14,9 @@ $leftPart-divContent__padding: 5%;
 $leftPart-image__height: 50vh;
 $leftPart-image__width: 40vh;
 $leftPart-contentBottom-lvlPainel-buttons__border-radius: 50%;
+$leftPart-lvlPainel-input__width: 3vh;
+$leftPart-lvlPainel-input__color: black;
+$leftPart-contentBottom__margin-top: 1vh;
 
 @mixin leftPart-buttons($painelLvl) {
     height: $leftPart-buttons__height-width;
@@ -24,6 +27,7 @@ $leftPart-contentBottom-lvlPainel-buttons__border-radius: 50%;
 
     @if $painelLvl {
         border-radius: $leftPart-contentBottom-lvlPainel-buttons__border-radius;
+        margin: 0 .5rem;
     }
 }
 
@@ -75,30 +79,42 @@ $leftPart-contentBottom-lvlPainel-buttons__border-radius: 50%;
 
         .leftPart__contentBottom {
             width: $leftPart-and-contentTop-bottom__width;
-            margin-top: 1vh;
+            margin-top: $leftPart-contentBottom__margin-top;
 
             .leftPart__contentBottom__lvlPainel {
                 display: flex;
                 justify-content: center;
+                align-items: center;
 
                 .leftPart__lvlPainel__buttonDash {
                     @include leftPart-buttons(true);
                 }
 
                 .leftPart__lvlPainel__input {
-                    width: 3vh;
-                    color: black;
+                    width: $leftPart-lvlPainel-input__width;
+                    color: $leftPart-lvlPainel-input__color;
                     text-align: center;
+                    cursor: default;
 
                     &:focus {
                         outline: none;
-                        cursor: default;
                     }
                 }
 
                 .leftPart__lvlPainel__buttonPlus {
                     @include leftPart-buttons(true)
                 }
+            }
+
+            .leftPart__contentBottom__Info {
+                height: 25vh;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: baseline;
+                border: 3px solid pink;
             }
         }
     }
