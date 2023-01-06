@@ -6,9 +6,7 @@ export const ChampionStats = (props) => {
   if(statsWithoutFixed.includes(props.stat)) {
     return(
       <div className='stats'>
-        <span className='stats__key'>
-          {props.stat}: 
-        </span>
+          {props.stat}:&nbsp;
         <span className='stats__value'>
           {props.value}
         </span>
@@ -18,12 +16,10 @@ export const ChampionStats = (props) => {
 
   return(
     <div className='stats'>
-      <span className='stats__key'>
-          {props.stat}: 
-        </span>
-        <span className='stats__value'>
-          {props.value.toFixed(2)}
-        </span>
+      {props.stat}:&nbsp;
+      <span className='stats__value'>
+        {props.value.toFixed(2)}
+      </span>
     </div>
   )
 }

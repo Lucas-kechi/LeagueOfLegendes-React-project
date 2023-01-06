@@ -8,7 +8,7 @@ $leftPart-back-button__height-width: 5vh;
 $leftPart-divContent__margin: 5vh 5vh 5vh 0;
 $leftPart-divContent__height: 85vh;
 $leftPart-divContent__width: 90%;
-$leftPart-divContent__background-color: rgba(0, 0, 0, 0.5);
+$leftPart-divContent__background-color: rgba(0, 0, 0, 0.7);
 $leftPart-divContent__border-radius: 50px;
 $leftPart-divContent__padding: 5%;
 $leftPart-image__height: 50vh;
@@ -52,7 +52,7 @@ $leftPart-contentBottom__margin-top: 1vh;
         background-color: $leftPart-divContent__background-color;
         border-radius: $leftPart-divContent__border-radius;
         padding: $leftPart-divContent__padding;
-
+        box-shadow: 10px 5px 10px 7px black;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -108,14 +108,15 @@ $leftPart-contentBottom__margin-top: 1vh;
 
             .leftPart__contentBottom__Info {
                 height: 25vh;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                align-items: baseline;
-                border: 3px solid pink;
+                width: 98%;
+                margin-left: 1vw;
+                display: grid;
+                grid-template-areas: 'left-stats right-stats';
+                grid-template-columns: 40% 1fr;
+                grid-template-rows: 20% 20% 20% 20% 20%; 
             }
+
+            
         }
     }
 }

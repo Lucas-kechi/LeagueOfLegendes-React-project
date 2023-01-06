@@ -75,15 +75,15 @@ export function ChampionInfoContent() {
                     championName: championInfo.skins[skinIndex].name,
                     stats: [
                         ['HP', (championStats.hp + numberPerLevel * championStatsPerLevel.hpperlevel)],
-                        ['MP', (championStats.mp + numberPerLevel * championStatsPerLevel.mpperlevel)],
-                        ['ATK', (championStats.attackdamage + numberPerLevel * championStatsPerLevel.attackdamageperlevel)],
-                        ['AMR', (championStats.armor + numberPerLevel * championStatsPerLevel.armorperlevel)],
-                        ['MR', (championStats.spellblock + numberPerLevel * championStatsPerLevel.spellblockperlevel)],
                         ['Move Speed', championStats.movespeed],
+                        ['MP', (championStats.mp + numberPerLevel * championStatsPerLevel.mpperlevel)],
                         ['ATK Speed', (championStats.attackspeed + numberPerLevel * championStatsPerLevel.attackspeedperlevel)],
+                        ['ATK', (championStats.attackdamage + numberPerLevel * championStatsPerLevel.attackdamageperlevel)],
                         ['ATK Range', championStats.attackrange],
+                        ['AMR', (championStats.armor + numberPerLevel * championStatsPerLevel.armorperlevel)],
                         ['HP Regen', (championStats.hpregen + numberPerLevel * championStatsPerLevel.hpregenperlevel)],
-                        ['MP Regen', (championStats.mpregen + numberPerLevel * championStatsPerLevel.mpregenperlevel)]
+                        ['MR', (championStats.spellblock + numberPerLevel * championStatsPerLevel.spellblockperlevel)],
+                        ['MP Regen', (championStats.mpregen + numberPerLevel * championStatsPerLevel.mpregenperlevel)],
                     ],
                 })
             }
