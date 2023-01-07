@@ -37,7 +37,19 @@ export function ChampionInfoContent() {
         
         if(buttonTarget[0].className == 'leftPart__lvlPainel__buttonPlus') ChampionLvl.value >= 18 ? ChampionLvl.value = 18 : setNumberPerLevel(prevState => ++prevState)
         else ChampionLvl.value <= 1 ? ChampionLvl.value = 1 : setNumberPerLevel(prevState => --prevState)
+    }
 
+    const tagsTranslatePtBr = (arrayTags) => {
+        const tagsTranslated = arrayTags.map(el => {
+            if(el === 'Marksman') return 'Atirador';
+            if(el === 'Mage') return 'Mago';
+            if(el === 'Tank') return 'Tanque';
+            if(el === 'Figther') return 'Lutador';
+            if(el === 'Assassin') return 'Assassino';
+            if(el === 'Support') return 'Suporte';
+        });
+
+        return tagsTranslated;
     }
     
     useEffect(() => {
@@ -51,6 +63,8 @@ export function ChampionInfoContent() {
                 image: data.data[urlParameter.id].image.full.split('.')[0],
                 skins: data.data[urlParameter.id].skins,
                 stats: Object.entries(data.data[urlParameter.id].stats),
+                tags: tagsTranslatePtBr(data.data[urlParameter.id].tags),
+                info: Object.entries(data.data[urlParameter.id].info),
             })
         }
 
@@ -87,7 +101,7 @@ export function ChampionInfoContent() {
                     ],
                 })
             }
-    
+            
             champInfo()
                 .catch(error => console.error("Erro ao carregar a Api", error))
                 .finally(() => {
@@ -98,7 +112,7 @@ export function ChampionInfoContent() {
     }, [championInfo, skinIndex, numberPerLevel])
     
     if(apiRequestDontFinish) return <Loading />
-
+    
     return(
         <div className="content" style={{backgroundImage: `url(${infoChampAsync.splash})`}}>
             <ContentLeftPart 
@@ -112,6 +126,9 @@ export function ChampionInfoContent() {
             <ContentRightPart 
                 name={handleSkinsName()}
                 request={loadingApi}
+                titleMoment={championInfo.title}
+                tags={championInfo.tags}
+                info={championInfo.info}
             />
         </div>
     )

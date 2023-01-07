@@ -1,4 +1,50 @@
+$rightPart__shadows: 10px 8px 10px 7px black;
+$rightPart__color: gold;
+$rightPart__borders-radius: 50px;
+$rightPart__backgrounds-color: rgba(0, 0, 0, 0.7);
+$rightPart-header__padding: 1.5vh;
+$rightPart-header__text-align: center;
+$rightPart-Tags-span__padding: .8vh;
+$rightPart-Tags-span__margin: 0 1vh;
+
 .rightPart {
     grid-area: right-part;
-    background-color: rgba(0, 255, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $rightPart__color;
+
+    .rightPart__header{
+        border-radius: $rightPart__borders-radius;
+        background-color: $rightPart__backgrounds-color;
+        padding: $rightPart-header__padding;
+        text-align: $rightPart-header__text-align;
+        box-shadow: $rightPart__shadows;
+        margin-bottom: 3vh;
+    }
+
+    .rightPart__tags {
+        margin-bottom: 3vh;
+        
+        span {
+            background-color: $rightPart__backgrounds-color;
+            padding: $rightPart-Tags-span__padding;
+            margin: $rightPart-Tags-span__margin;
+            border-radius: $rightPart__borders-radius;
+            box-shadow: $rightPart__shadows;
+        }
+    }
+
+
+    .rightPart__info {
+        width: 95%;
+        height: 7vh;
+        background-color: $rightPart__backgrounds-color;
+        box-shadow: $rightPart__shadows;
+        border-radius: $rightPart__borders-radius;
+        padding: 1.5vh;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%;
+    }
 }
