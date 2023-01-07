@@ -1,5 +1,4 @@
 $leftPart-and-contentTop-bottom__width: 100%;
-
 $leftPart-buttons__background-color: rgba(0, 0, 0, 0);
 $leftPart-buttons__border-radius: 8px;
 $leftPart-buttons__height-width: fit-content;
@@ -11,12 +10,18 @@ $leftPart-divContent__width: 90%;
 $leftPart-divContent__background-color: rgba(0, 0, 0, 0.7);
 $leftPart-divContent__border-radius: 50px;
 $leftPart-divContent__padding: 5%;
+$leftPart-divContent__shadow: 10px 5px 10px 7px black;
 $leftPart-image__height: 50vh;
 $leftPart-image__width: 40vh;
+$leftPart-contentBottom__margin-top: 1vh;
 $leftPart-contentBottom-lvlPainel-buttons__border-radius: 50%;
 $leftPart-lvlPainel-input__width: 3vh;
 $leftPart-lvlPainel-input__color: black;
-$leftPart-contentBottom__margin-top: 1vh;
+$leftPart-contentBottom-Info__height: 25vh;
+$leftPart-contentBottom-Info__width: 98%;
+$leftPart-contentBottom-Info__margin-left: 1vh;
+$leftPart-contentBottom-Info__grid-template-columns: 40% 1fr;
+$leftPart-contentBottom-Info__grid-template-rows: 20% 20% 20% 20% 20%;
 
 @mixin leftPart-buttons($painelLvl) {
     height: $leftPart-buttons__height-width;
@@ -52,7 +57,7 @@ $leftPart-contentBottom__margin-top: 1vh;
         background-color: $leftPart-divContent__background-color;
         border-radius: $leftPart-divContent__border-radius;
         padding: $leftPart-divContent__padding;
-        box-shadow: 10px 5px 10px 7px black;
+        box-shadow: $leftPart-divContent__shadow;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -107,16 +112,14 @@ $leftPart-contentBottom__margin-top: 1vh;
             }
 
             .leftPart__contentBottom__Info {
-                height: 25vh;
-                width: 98%;
-                margin-left: 1vw;
+                height: $leftPart-contentBottom-Info__height;
+                width: $leftPart-contentBottom-Info__width;
+                margin-left: $leftPart-contentBottom-Info__margin-left;
                 display: grid;
                 grid-template-areas: 'left-stats right-stats';
-                grid-template-columns: 40% 1fr;
-                grid-template-rows: 20% 20% 20% 20% 20%; 
+                grid-template-columns: $leftPart-contentBottom-Info__grid-template-columns;
+                grid-template-rows: $leftPart-contentBottom-Info__grid-template-rows; 
             }
-
-            
         }
     }
 }
