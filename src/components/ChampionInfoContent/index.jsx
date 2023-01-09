@@ -65,6 +65,7 @@ export function ChampionInfoContent() {
                 stats: Object.entries(data.data[urlParameter.id].stats),
                 tags: tagsTranslatePtBr(data.data[urlParameter.id].tags),
                 info: Object.entries(data.data[urlParameter.id].info),
+                lore: data.data[urlParameter.id].lore,
             })
         }
 
@@ -129,6 +130,7 @@ export function ChampionInfoContent() {
                 titleMoment={championInfo.title}
                 tags={championInfo.tags}
                 info={championInfo.info}
+                lore={championInfo.lore}
             />
         </div>
     )

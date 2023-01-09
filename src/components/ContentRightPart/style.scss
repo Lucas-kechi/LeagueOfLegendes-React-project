@@ -6,6 +6,20 @@ $rightPart-header__padding: 1.5vh;
 $rightPart-header__text-align: center;
 $rightPart-Tags-span__padding: .8vh;
 $rightPart-Tags-span__margin: 0 1vh;
+$rightPart-info__height: 7vh;
+$rightPart-info__width: 95%;
+$rightPart-info__padding: 1.5vh;
+$rightPart-info__grid-template-columns-rows: 50% 50%;
+
+@mixin properties($mixin-margin, $mixin-padding, $mixin-height, $mixin-width) {
+    height: $mixin-height;
+    width: $mixin-width;
+    border-radius: $rightPart__borders-radius;
+    background-color: $rightPart__backgrounds-color;
+    box-shadow: $rightPart__shadows;
+    margin: $mixin-margin;
+    padding: $mixin-padding;
+}
 
 .rightPart {
     grid-area: right-part;
@@ -15,41 +29,30 @@ $rightPart-Tags-span__margin: 0 1vh;
     color: $rightPart__color;
 
     .rightPart__header{
-        border-radius: $rightPart__borders-radius;
-        background-color: $rightPart__backgrounds-color;
-        padding: $rightPart-header__padding;
+        @include properties(none, $rightPart-header__padding, none, none);
         text-align: $rightPart-header__text-align;
-        box-shadow: $rightPart__shadows;
-        margin-bottom: 3vh;
+        margin-bottom: 3vh; //por enquanto
     }
 
     .rightPart__tags {
-        margin-bottom: 3vh;
+        margin-bottom: 3vh; //por enquanto
         
         span {
-            background-color: $rightPart__backgrounds-color;
-            padding: $rightPart-Tags-span__padding;
-            margin: $rightPart-Tags-span__margin;
-            border-radius: $rightPart__borders-radius;
-            box-shadow: $rightPart__shadows;
+            @include properties($rightPart-Tags-span__margin, $rightPart-Tags-span__padding, none, none);
         }
     }
 
 
     .rightPart__info {
-        width: 95%;
-        height: 7vh;
-        background-color: $rightPart__backgrounds-color;
-        box-shadow: $rightPart__shadows;
-        border-radius: $rightPart__borders-radius;
-        padding: 1.5vh;
+        @include properties(none, $rightPart-info__padding, $rightPart-info__height, $rightPart-info__width);
         display: grid;
         grid-template-columns: 50% 50%;
         grid-template-rows: 50% 50%;
+        margin-bottom: 3vh; //por enquanto
+    }
+
+    .rightPart__lore{
+        @include properties(none, 2vh, none, 95%);
+        margin-bottom: 3vh; //por enquanto
     }
 }
-
-.on {
-    background-color: green;
-  }
-  

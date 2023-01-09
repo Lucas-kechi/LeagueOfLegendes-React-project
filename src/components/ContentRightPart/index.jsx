@@ -35,6 +35,9 @@ export function ContentRightPart(props) {
                     ))
                 }
             </div>
+            <div className="rightPart__lore">
+                {props.lore}
+            </div>
         </div>
     )
 }
