@@ -1,3 +1,4 @@
+import { ChampionInfos } from '../ChampionInfos'
 import { Loading } from '../Loading'
 import './style.scss'
 
@@ -24,7 +25,14 @@ export function ContentRightPart(props) {
             </div>
             <div className="rightPart__info">
                 {
-                    props.info.map(([key, value]) => <span key={key} >{key}: {value}</span>)
+                    props.info.map(([key, value]) => (
+                        <ChampionInfos
+                            infoName={key}
+                            infoValue={value}
+                            key={key}
+                        />
+
+                    ))
                 }
             </div>
         </div>
