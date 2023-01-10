@@ -40,16 +40,27 @@ export function ContentRightPart(props) {
                 {props.lore}
             </div>
             <div className="rightPart__Spells">
+                <ChampionSpells
+                    image={props.passive.image.full}
+                    elementFilter={props.passive.image.group}
+                    name={props.passive.name}
+                    description={props.passive.description}
+                    key={props.passive.name}
+                />
                 {
                     props.spells.map(el => 
                         <ChampionSpells
                             key={el.id}
-                            toolTip={el.tooltip}
+                            name={el.name}
+                            description={el.tooltip}
                             levelTip={el.leveltip}
                             maxRank={el.maxrank}
                             cooldownBurn={el.cooldownBurn}
                             costBurn={el.costBurn}
                             effectBurn={el.effectBurn}
+                            vars={el.vars}
+                            rangeBurn={el.rangeBurn}
+                            image={el.image.full}
                         />
                     )
                 }

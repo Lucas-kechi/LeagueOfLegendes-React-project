@@ -2,6 +2,7 @@ $rightPart__shadows: 10px 8px 10px 7px black;
 $rightPart__color: gold;
 $rightPart__borders-radius: 50px;
 $rightPart__backgrounds-color: rgba(0, 0, 0, 0.7);
+$rightPart__margin: 2vh 0;
 $rightPart-header__padding: 1.5vh;
 $rightPart-header__text-align: center;
 $rightPart-Tags-span__padding: .8vh;
@@ -29,15 +30,16 @@ $rightPart-lore__width: 95%;
     flex-direction: column;
     align-items: center;
     color: $rightPart__color;
+    overflow-y: scroll;
 
     .rightPart__header{
-        @include properties(none, $rightPart-header__padding, none, none);
+        @include properties($rightPart__margin, $rightPart-header__padding, none, none);
         text-align: $rightPart-header__text-align;
-        margin-bottom: 3vh; //por enquanto
+        // margin-bottom: 3vh; //por enquanto
     }
 
     .rightPart__tags {
-        margin-bottom: 3vh; //por enquanto
+        margin: $rightPart__margin; //por enquanto
         
         span {
             @include properties($rightPart-Tags-span__margin, $rightPart-Tags-span__padding, none, none);
@@ -46,15 +48,19 @@ $rightPart-lore__width: 95%;
 
 
     .rightPart__info {
-        @include properties(none, $rightPart-info__padding, $rightPart-info__height, $rightPart-info__width);
+        @include properties($rightPart__margin, $rightPart-info__padding, $rightPart-info__height, $rightPart-info__width);
         display: grid;
         grid-template-columns: $rightPart-info__grid-template-columns-rows;
         grid-template-rows: $rightPart-info__grid-template-columns-rows;
-        margin-bottom: 3vh; //por enquanto
+        // margin-bottom: 3vh; //por enquanto
     }
 
     .rightPart__lore{
-        @include properties(none, $rightPart-lore__padding, none, $rightPart-lore__width);
-        margin-bottom: 3vh; //por enquanto
+        @include properties($rightPart__margin, $rightPart-lore__padding, none, $rightPart-lore__width);
+        // margin-bottom: 3vh; //por enquanto
+    }
+
+    .rightPart__Spells {
+        @include properties($rightPart__margin, 1.5vh, none, 95%)
     }
 }
