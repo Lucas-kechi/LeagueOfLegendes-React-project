@@ -6,22 +6,6 @@ $Svgs-arrows__color: gold;
   color: $Svgs-arrows__color;
 }
 
-.left-arrow {
-  @include icons-colors()
-}
-
-.right-arrow {
-  @include icons-colors()
-}
-
-.back-arrow {
-  @include icons-colors()
-}
-
-.dash-circle {
-  @include icons-colors()
-}
-
-.plus-circle {
+.left-arrow, .right-arrow, .back-arrow, .dash-circle, .plus-circle {
   @include icons-colors()
 }

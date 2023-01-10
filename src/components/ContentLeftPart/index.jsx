@@ -1,5 +1,5 @@
 import './style.scss'
-import { IconLeftArrow, IconRightArrow, IconBackArrow} from '../../assets/svgsAsComponents.jsx'
+import { IconLeftArrow, IconRightArrow, IconBackArrow } from '../../assets/svgsAsComponents.jsx'
 import { ChampionStats } from '../ChampionStats'
 import { PainelLevel } from '../PainelLevel'
 
