@@ -1,4 +1,5 @@
 import { ChampionInfos } from '../ChampionInfos'
+import { ChampionSpells } from '../ChampionSpells'
 import { Loading } from '../Loading'
 import './style.scss'
 
@@ -37,6 +38,21 @@ export function ContentRightPart(props) {
             </div>
             <div className="rightPart__lore">
                 {props.lore}
+            </div>
+            <div className="rightPart__Spells">
+                {
+                    props.spells.map(el => 
+                        <ChampionSpells
+                            key={el.id}
+                            toolTip={el.tooltip}
+                            levelTip={el.leveltip}
+                            maxRank={el.maxrank}
+                            cooldownBurn={el.cooldownBurn}
+                            costBurn={el.costBurn}
+                            effectBurn={el.effectBurn}
+                        />
+                    )
+                }
             </div>
         </div>
     )

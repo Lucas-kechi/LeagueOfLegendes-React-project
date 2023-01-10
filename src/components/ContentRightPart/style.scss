@@ -10,6 +10,8 @@ $rightPart-info__height: 7vh;
 $rightPart-info__width: 95%;
 $rightPart-info__padding: 1.5vh;
 $rightPart-info__grid-template-columns-rows: 50% 50%;
+$rightPart-lore__padding: 2vh;
+$rightPart-lore__width: 95%;
 
 @mixin properties($mixin-margin, $mixin-padding, $mixin-height, $mixin-width) {
     height: $mixin-height;
@@ -46,13 +48,13 @@ $rightPart-info__grid-template-columns-rows: 50% 50%;
     .rightPart__info {
         @include properties(none, $rightPart-info__padding, $rightPart-info__height, $rightPart-info__width);
         display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 50% 50%;
+        grid-template-columns: $rightPart-info__grid-template-columns-rows;
+        grid-template-rows: $rightPart-info__grid-template-columns-rows;
         margin-bottom: 3vh; //por enquanto
     }
 
     .rightPart__lore{
-        @include properties(none, 2vh, none, 95%);
+        @include properties(none, $rightPart-lore__padding, none, $rightPart-lore__width);
         margin-bottom: 3vh; //por enquanto
     }
 }
