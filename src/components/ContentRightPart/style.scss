@@ -35,11 +35,10 @@ $rightPart-lore__width: 95%;
     .rightPart__header{
         @include properties($rightPart__margin, $rightPart-header__padding, none, none);
         text-align: $rightPart-header__text-align;
-        // margin-bottom: 3vh; //por enquanto
     }
 
     .rightPart__tags {
-        margin: $rightPart__margin; //por enquanto
+        margin: $rightPart__margin;
         
         span {
             @include properties($rightPart-Tags-span__margin, $rightPart-Tags-span__padding, none, none);
@@ -52,12 +51,10 @@ $rightPart-lore__width: 95%;
         display: grid;
         grid-template-columns: $rightPart-info__grid-template-columns-rows;
         grid-template-rows: $rightPart-info__grid-template-columns-rows;
-        // margin-bottom: 3vh; //por enquanto
     }
 
     .rightPart__lore{
         @include properties($rightPart__margin, $rightPart-lore__padding, none, $rightPart-lore__width);
-        // margin-bottom: 3vh; //por enquanto
     }
 
     .rightPart__Spells {

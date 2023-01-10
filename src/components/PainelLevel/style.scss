@@ -1,0 +1,41 @@
+$leftPart-contentBottom-lvlPainel-buttons__background-color: rgba(0, 0, 0, 0);
+$leftPart-contentBottom-lvlPainel-buttons__height-width: fit-content;
+$leftPart-contentBottom-lvlPainel-buttons__outline: none;
+$leftPart-contentBottom-lvlPainel-buttons__border-radius: 50%;
+$leftPart-contentBottom-lvlPainel-buttons__margin: 0 0.5rem;
+$leftPart-lvlPainel-input__width: 3vh;
+$leftPart-lvlPainel-input__color: black;
+
+@mixin leftPart-buttons() {
+  height: $leftPart-contentBottom-lvlPainel-buttons__height-width;
+  width: $leftPart-contentBottom-lvlPainel-buttons__height-width;
+  outline: $leftPart-contentBottom-lvlPainel-buttons__outline;
+  background-color: $leftPart-contentBottom-lvlPainel-buttons__background-color;
+  border-radius: $leftPart-contentBottom-lvlPainel-buttons__border-radius;
+  margin: $leftPart-contentBottom-lvlPainel-buttons__margin;
+}
+
+.leftPart__contentBottom__lvlPainel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .leftPart__lvlPainel__buttonDash {
+      @include leftPart-buttons();
+  }
+
+  .leftPart__lvlPainel__input {
+      width: $leftPart-lvlPainel-input__width;
+      color: $leftPart-lvlPainel-input__color;
+      text-align: center;
+      cursor: default;
+
+      &:focus {
+          outline: none;
+      }
+  }
+
+  .leftPart__lvlPainel__buttonPlus {
+      @include leftPart-buttons()
+  }
+}

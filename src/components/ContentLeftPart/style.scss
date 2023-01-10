@@ -15,25 +15,18 @@ $leftPart-image__height: 50vh;
 $leftPart-image__width: 40vh;
 $leftPart-contentBottom__margin-top: 1vh;
 $leftPart-contentBottom-lvlPainel-buttons__border-radius: 50%;
-$leftPart-lvlPainel-input__width: 3vh;
-$leftPart-lvlPainel-input__color: black;
 $leftPart-contentBottom-Info__height: 25vh;
 $leftPart-contentBottom-Info__width: 98%;
 $leftPart-contentBottom-Info__margin-left: 1vh;
 $leftPart-contentBottom-Info__grid-template-columns: 40% 1fr;
 $leftPart-contentBottom-Info__grid-template-rows: 20% 20% 20% 20% 20%;
 
-@mixin leftPart-buttons($painelLvl) {
+@mixin leftPart-buttons {
     height: $leftPart-buttons__height-width;
     width: $leftPart-buttons__height-width;
     outline: $leftPart-buttons__outline;
     background-color: $leftPart-buttons__background-color;
     border-radius: $leftPart-buttons__border-radius;
-
-    @if $painelLvl {
-        border-radius: $leftPart-contentBottom-lvlPainel-buttons__border-radius;
-        margin: 0 .5rem;
-    }
 }
 
 .leftPart {
@@ -74,42 +67,17 @@ $leftPart-contentBottom-Info__grid-template-rows: 20% 20% 20% 20% 20%;
             }
             
             .leftPart__contentTop__buttonLeft {
-                @include leftPart-buttons(false)
+                @include leftPart-buttons()
             }
 
             .leftPart__contentTop__buttonRight {
-                @include leftPart-buttons(false)
+                @include leftPart-buttons()
             }
         }
 
         .leftPart__contentBottom {
             width: $leftPart-and-contentTop-bottom__width;
             margin-top: $leftPart-contentBottom__margin-top;
-
-            .leftPart__contentBottom__lvlPainel {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .leftPart__lvlPainel__buttonDash {
-                    @include leftPart-buttons(true);
-                }
-
-                .leftPart__lvlPainel__input {
-                    width: $leftPart-lvlPainel-input__width;
-                    color: $leftPart-lvlPainel-input__color;
-                    text-align: center;
-                    cursor: default;
-
-                    &:focus {
-                        outline: none;
-                    }
-                }
-
-                .leftPart__lvlPainel__buttonPlus {
-                    @include leftPart-buttons(true)
-                }
-            }
 
             .leftPart__contentBottom__Info {
                 height: $leftPart-contentBottom-Info__height;

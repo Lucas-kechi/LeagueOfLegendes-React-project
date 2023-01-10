@@ -1,6 +1,7 @@
 import './style.scss'
-import { IconLeftArrow, IconRightArrow, IconBackArrow, IconDashCircle, IconPlusCircle } from '../../assets/svgsAsComponents.jsx'
+import { IconLeftArrow, IconRightArrow, IconBackArrow} from '../../assets/svgsAsComponents.jsx'
 import { ChampionStats } from '../ChampionStats'
+import { PainelLevel } from '../PainelLevel'
 
 export function ContentLeftPart(props) {
     return(
@@ -28,28 +29,10 @@ export function ContentLeftPart(props) {
                     </button>
                 </div>
                 <div className="leftPart__contentBottom">
-                    <div className="leftPart__contentBottom__lvlPainel">
-                        <button 
-                            className='leftPart__lvlPainel__buttonDash'
-                            onClick={() => props.buttonsPainelLogic(event)}
-                        >
-                            <IconDashCircle height='1rem' width='1rem'/>
-                        </button>
-                        <input 
-                            type="text"
-                            id="ChampionLvl"
-                            name='ChampionLvl'
-                            className='leftPart__lvlPainel__input'
-                            value={props.levelRef + 1}
-                            readOnly
-                        />
-                        <button 
-                            className='leftPart__lvlPainel__buttonPlus'
-                            onClick={() => props.buttonsPainelLogic(event)}
-                        >
-                            <IconPlusCircle height='1rem' width='1rem'/>
-                        </button>
-                    </div>
+                    <PainelLevel
+                        buttonsPainelLogic={props.buttonsPainelLogic}
+                        levelRef={props.levelRef}
+                    />
                     <div className="leftPart__contentBottom__Info">
                         {
                             props.statsPerLevel.map(([key, value]) => (
