@@ -61,13 +61,20 @@ export function ChampionInfoContent() {
 
   const tagsTranslatePtBr = (arrayTags) => {
     const tagsTranslated = arrayTags.map((el) => {
-      // TODO: transformar esses ifs em switch case.
-      if (el === "Marksman") return "Atirador";
-      if (el === "Mage") return "Mago";
-      if (el === "Tank") return "Tanque";
-      if (el === "Figther") return "Lutador";
-      if (el === "Assassin") return "Assassino";
-      if (el === "Support") return "Suporte";
+      switch (el) {
+        case "Marksman":
+          return "Atirador";
+        case "Mage":
+          return "Mago";
+        case "Tank":
+          return "Tanque";
+        case "Figther":
+          return "Lutador";
+        case "Assassin":
+          return "Assassino";
+        case "Support":
+          return "Suporte";
+      }
     });
 
     return tagsTranslated;

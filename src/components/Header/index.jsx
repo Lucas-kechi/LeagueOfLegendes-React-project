@@ -47,8 +47,7 @@ export function Header() {
   };
 
   const onClickInputsButton = () => {
-    // TODO: refatorar essa const pra receber um valor em lower case
-    const championNameFirstLetterUperCase = inputChampion.value;
+    const championNameFirstLetterUperCase = inputChampion.value.toLowerCase();
     setActiveFilter(championNameFirstLetterUperCase);
   };
 
