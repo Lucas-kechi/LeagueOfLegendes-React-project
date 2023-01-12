@@ -3,13 +3,13 @@ $main__max-width: 100vw;
 $main__padding: 3vh;
 
 main {
-    background-color: $main__background-color;
-    grid-area: main;
-    max-width: $main__max-width;
-    padding: $main__padding;
+  background-color: $main__background-color;
+  grid-area: main;
+  max-width: $main__max-width;
+  padding: $main__padding;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: scroll;
 }

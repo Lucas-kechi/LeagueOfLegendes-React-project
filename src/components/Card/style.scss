@@ -8,39 +8,38 @@ $card__font-weight: 900;
 $card__transition: filter 0.2s;
 $card__hover-filter: brightness(2.5);
 
-
 $card-text__width: fit-content;
 $card-text__background-color: rgba(0, 0, 0, 0.6);
 $card-text__border-radius: 10px;
 $card-text__padding: 10px;
 
 .card {
-    height: $card__height;
-    width: $card__width;
+  height: $card__height;
+  width: $card__width;
 
-    margin: $card__margin;
+  margin: $card__margin;
 
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    border: $card__border;
-    padding: $card__padding;
-    color: $card__text-color;
-    font-weight: $card__font-weight;
-    cursor: pointer;
-    transition: $card__transition;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: $card__border;
+  padding: $card__padding;
+  color: $card__text-color;
+  font-weight: $card__font-weight;
+  cursor: pointer;
+  transition: $card__transition;
 
-    &:hover {
-        filter: $card__hover-filter;
-    }
+  &:hover {
+    filter: $card__hover-filter;
+  }
 
-    .card__text {
-        width: $card-text__width;
-        background-color: $card-text__background-color;
-        border-radius: $card-text__border-radius;
-        padding: $card-text__padding;
-    }
+  .card__text {
+    width: $card-text__width;
+    background-color: $card-text__background-color;
+    border-radius: $card-text__border-radius;
+    padding: $card-text__padding;
+  }
 }

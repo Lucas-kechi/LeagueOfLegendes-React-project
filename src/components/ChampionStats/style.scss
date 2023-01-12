@@ -1,8 +1,8 @@
 $stats__color: gold;
-$stats__margin: .4vh 0;
+$stats__margin: 0.4vh 0;
 $stats__font-size: 1.5vw;
 $stats__width: fit-content;
-$stats-value__color: #C0C0C0;
+$stats-value__color: #c0c0c0;
 
 .stats {
   width: $stats__width;
@@ -10,7 +10,7 @@ $stats-value__color: #C0C0C0;
   color: $stats__color;
   font-size: $stats__font-size;
 
-  .stats__value{
+  .stats__value {
     color: $stats-value__color;
   }
 }

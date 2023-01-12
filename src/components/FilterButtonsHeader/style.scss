@@ -4,56 +4,56 @@ $filterButtons-border-radius: 10px;
 $filterButtons-img__height-width: 10vh;
 
 @mixin define-borders($border-value, $border-right, $border-left) {
-    border: $border-value;
-    
-    @if $border-right != '' {
-        border-right: $border-right;
-    }
+  border: $border-value;
 
-    @if $border-left != '' {
-        border-left: $border-left;
-    }
+  @if $border-right != "" {
+    border-right: $border-right;
+  }
+
+  @if $border-left != "" {
+    border-left: $border-left;
+  }
 }
 
 button {
-    background-color: $filterButtons__background-color;
-    cursor: pointer;
-    transition: filter 0.2s;
+  background-color: $filterButtons__background-color;
+  cursor: pointer;
+  transition: filter 0.2s;
 
-    &:hover {
-        filter: brightness(2.5);
-    }
+  &:hover {
+    filter: brightness(2.5);
+  }
 }
 
 .filterButtons__buttonFighter {
-    @include define-borders($filterButtons__border, none, '');
-    border-top-left-radius: $filterButtons-border-radius;
-    border-bottom-left-radius: $filterButtons-border-radius;
+  @include define-borders($filterButtons__border, none, "");
+  border-top-left-radius: $filterButtons-border-radius;
+  border-bottom-left-radius: $filterButtons-border-radius;
 }
 
 .filterButtons__buttonTank {
-    @include define-borders($filterButtons__border, none, none);
+  @include define-borders($filterButtons__border, none, none);
 }
 
 .filterButtons__buttonAssassin {
-    @include define-borders($filterButtons__border, none, none);
+  @include define-borders($filterButtons__border, none, none);
 }
 
 .filterButtons__buttonMage {
-    @include define-borders($filterButtons__border, none, none);
+  @include define-borders($filterButtons__border, none, none);
 }
 
 .filterButtons__buttonSupport {
-    @include define-borders($filterButtons__border, none, none);
+  @include define-borders($filterButtons__border, none, none);
 }
 
 .filterButtons__buttonMarksman {
-    @include define-borders($filterButtons__border, '', none);
-    border-top-right-radius: $filterButtons-border-radius;
-    border-bottom-right-radius: $filterButtons-border-radius;
+  @include define-borders($filterButtons__border, "", none);
+  border-top-right-radius: $filterButtons-border-radius;
+  border-bottom-right-radius: $filterButtons-border-radius;
 }
 
 img {
-    height: $filterButtons-img__height-width;
-    width: $filterButtons-img__height-width;
+  height: $filterButtons-img__height-width;
+  width: $filterButtons-img__height-width;
 }

@@ -1,8 +1,7 @@
 $header-buttons__border: 3px gold solid;
 
 .container {
-    display: grid;
-    grid-template-areas: "header" "main" "footer";
-    grid-template-rows: 15vh 80vh 5vh;
-
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: 15vh 80vh 5vh;
 }

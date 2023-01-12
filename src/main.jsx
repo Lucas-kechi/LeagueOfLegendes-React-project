@@ -1,26 +1,26 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import "./styles/global.scss"
-import {Home} from './pages/Home'
-import { ChampionInfo } from './pages/Champion-info'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import FilterProvider from './contexts/FilterContext'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./styles/global.scss";
+import { Home } from "./pages/Home";
+import { ChampionInfo } from "./pages/Champion-info";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import FilterProvider from "./contexts/FilterContext";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Home />,
   },
   {
-    path: '/champion/:id',
+    path: "/champion/:id",
     element: <ChampionInfo />,
-  }
-])
+  },
+]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <FilterProvider>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </FilterProvider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

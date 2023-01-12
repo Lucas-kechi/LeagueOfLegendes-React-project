@@ -21,21 +21,21 @@ $leftPart-lvlPainel-input__color: black;
   align-items: center;
 
   .leftPart__lvlPainel__buttonDash {
-      @include leftPart-buttons();
+    @include leftPart-buttons();
   }
 
   .leftPart__lvlPainel__input {
-      width: $leftPart-lvlPainel-input__width;
-      color: $leftPart-lvlPainel-input__color;
-      text-align: center;
-      cursor: default;
+    width: $leftPart-lvlPainel-input__width;
+    color: $leftPart-lvlPainel-input__color;
+    text-align: center;
+    cursor: default;
 
-      &:focus {
-          outline: none;
-      }
+    &:focus {
+      outline: none;
+    }
   }
 
   .leftPart__lvlPainel__buttonPlus {
-      @include leftPart-buttons()
+    @include leftPart-buttons();
   }
 }

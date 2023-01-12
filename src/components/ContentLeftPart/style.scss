@@ -22,72 +22,72 @@ $leftPart-contentBottom-Info__grid-template-columns: 40% 1fr;
 $leftPart-contentBottom-Info__grid-template-rows: 20% 20% 20% 20% 20%;
 
 @mixin leftPart-buttons {
-    height: $leftPart-buttons__height-width;
-    width: $leftPart-buttons__height-width;
-    outline: $leftPart-buttons__outline;
-    background-color: $leftPart-buttons__background-color;
-    border-radius: $leftPart-buttons__border-radius;
+  height: $leftPart-buttons__height-width;
+  width: $leftPart-buttons__height-width;
+  outline: $leftPart-buttons__outline;
+  background-color: $leftPart-buttons__background-color;
+  border-radius: $leftPart-buttons__border-radius;
 }
 
 .leftPart {
-    grid-area: left-part;
+  grid-area: left-part;
+  display: flex;
+
+  width: $leftPart-and-contentTop-bottom__width;
+
+  .back-button {
+    height: $leftPart-back-button__height-width;
+    width: $leftPart-back-button__height-width;
+    background-color: $leftPart-buttons__background-color;
+
+    border: none;
+  }
+
+  .leftPart__divContent {
+    margin: $leftPart-divContent__margin;
+    width: $leftPart-divContent__width;
+    height: $leftPart-divContent__height;
+    background-color: $leftPart-divContent__background-color;
+    border-radius: $leftPart-divContent__border-radius;
+    padding: $leftPart-divContent__padding;
+    box-shadow: $leftPart-divContent__shadow;
     display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    width: $leftPart-and-contentTop-bottom__width;
+    .leftPart__contentTop {
+      width: $leftPart-and-contentTop-bottom__width;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
 
-    .back-button {
-        height: $leftPart-back-button__height-width;
-        width: $leftPart-back-button__height-width;
-        background-color: $leftPart-buttons__background-color;
+      .leftPart__image {
+        height: $leftPart-image__height;
+        width: $leftPart-image__width;
+      }
 
-        border: none;
+      .leftPart__contentTop__buttonLeft {
+        @include leftPart-buttons();
+      }
+
+      .leftPart__contentTop__buttonRight {
+        @include leftPart-buttons();
+      }
     }
 
-    .leftPart__divContent{
-        margin: $leftPart-divContent__margin;
-        width: $leftPart-divContent__width;
-        height: $leftPart-divContent__height;
-        background-color: $leftPart-divContent__background-color;
-        border-radius: $leftPart-divContent__border-radius;
-        padding: $leftPart-divContent__padding;
-        box-shadow: $leftPart-divContent__shadow;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .leftPart__contentBottom {
+      width: $leftPart-and-contentTop-bottom__width;
+      margin-top: $leftPart-contentBottom__margin-top;
 
-        .leftPart__contentTop {
-            width: $leftPart-and-contentTop-bottom__width;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-
-            .leftPart__image {
-                height: $leftPart-image__height;
-                width: $leftPart-image__width;
-            }
-            
-            .leftPart__contentTop__buttonLeft {
-                @include leftPart-buttons()
-            }
-
-            .leftPart__contentTop__buttonRight {
-                @include leftPart-buttons()
-            }
-        }
-
-        .leftPart__contentBottom {
-            width: $leftPart-and-contentTop-bottom__width;
-            margin-top: $leftPart-contentBottom__margin-top;
-
-            .leftPart__contentBottom__Info {
-                height: $leftPart-contentBottom-Info__height;
-                width: $leftPart-contentBottom-Info__width;
-                margin-left: $leftPart-contentBottom-Info__margin-left;
-                display: grid;
-                grid-template-areas: 'left-stats right-stats';
-                grid-template-columns: $leftPart-contentBottom-Info__grid-template-columns;
-                grid-template-rows: $leftPart-contentBottom-Info__grid-template-rows; 
-            }
-        }
+      .leftPart__contentBottom__Info {
+        height: $leftPart-contentBottom-Info__height;
+        width: $leftPart-contentBottom-Info__width;
+        margin-left: $leftPart-contentBottom-Info__margin-left;
+        display: grid;
+        grid-template-areas: "left-stats right-stats";
+        grid-template-columns: $leftPart-contentBottom-Info__grid-template-columns;
+        grid-template-rows: $leftPart-contentBottom-Info__grid-template-rows;
+      }
     }
+  }
 }

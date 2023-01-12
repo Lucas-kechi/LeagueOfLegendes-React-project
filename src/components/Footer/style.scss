@@ -1,22 +1,22 @@
 $footer__background-color: rgb(0, 0, 0);
 
-$footer-icon__height-width: 25px; 
+$footer-icon__height-width: 25px;
 $footer-icon__background-color: aliceblue;
 $footer-icon__margin: 10px 0 0 15px;
 $footer-icon__border-radius: 20px;
 
 .footer {
-    background-color: $footer__background-color;
-    grid-area: footer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: $footer__background-color;
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    .footer__icon {
-        height: $footer-icon__height-width;
-        width: $footer-icon__height-width;
-        background-color: $footer-icon__background-color;
-        margin: $footer-icon__margin;
-        border-radius: $footer-icon__border-radius;
-    }
+  .footer__icon {
+    height: $footer-icon__height-width;
+    width: $footer-icon__height-width;
+    background-color: $footer-icon__background-color;
+    margin: $footer-icon__margin;
+    border-radius: $footer-icon__border-radius;
+  }
 }

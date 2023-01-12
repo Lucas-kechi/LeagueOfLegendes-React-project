@@ -31,7 +31,9 @@ export const ChampionSpells = (props) => {
     <section className="skill">
       <div className="skill__header">
         <div className="skill__header__leftPart">
-          {props.elementFilter === "passive" ? PASSIVE_COMPONENT : SKILLS_COMPONENT}
+          {props.elementFilter === "passive"
+            ? PASSIVE_COMPONENT
+            : SKILLS_COMPONENT}
         </div>
       </div>
       <div className="skill__main">

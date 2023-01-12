@@ -3,9 +3,10 @@ $rightPart__color: gold;
 $rightPart__borders-radius: 50px;
 $rightPart__backgrounds-color: rgba(0, 0, 0, 0.7);
 $rightPart__margin: 2vh 0;
+$rightPart-last-element-child__margin-bottom: 5vh;
 $rightPart-header__padding: 1.5vh;
 $rightPart-header__text-align: center;
-$rightPart-Tags-span__padding: .8vh;
+$rightPart-Tags-span__padding: 0.8vh;
 $rightPart-Tags-span__margin: 0 1vh;
 $rightPart-info__height: 7vh;
 $rightPart-info__width: 95%;
@@ -13,51 +14,93 @@ $rightPart-info__padding: 1.5vh;
 $rightPart-info__grid-template-columns-rows: 50% 50%;
 $rightPart-lore__padding: 2vh;
 $rightPart-lore__width: 95%;
+$rightPart-Spells__padding: 1.5vh;
+$rightPart-Spells__width: 95%;
 
-@mixin properties($mixin-margin, $mixin-padding, $mixin-height, $mixin-width) {
-    height: $mixin-height;
-    width: $mixin-width;
-    border-radius: $rightPart__borders-radius;
-    background-color: $rightPart__backgrounds-color;
-    box-shadow: $rightPart__shadows;
-    margin: $mixin-margin;
-    padding: $mixin-padding;
+@mixin properties(
+  $mixin-margin,
+  $mixin-padding,
+  $mixin-height,
+  $mixin-width,
+  $last-element
+) {
+  height: $mixin-height;
+  width: $mixin-width;
+  border-radius: $rightPart__borders-radius;
+  background-color: $rightPart__backgrounds-color;
+  box-shadow: $rightPart__shadows;
+  margin: $mixin-margin;
+  padding: $mixin-padding;
+
+  @if $last-element {
+    margin-bottom: $rightPart-last-element-child__margin-bottom;
+  }
 }
 
 .rightPart {
-    grid-area: right-part;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: $rightPart__color;
-    overflow-y: scroll;
+  grid-area: right-part;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $rightPart__color;
+  overflow-y: scroll;
 
-    .rightPart__header{
-        @include properties($rightPart__margin, $rightPart-header__padding, none, none);
-        text-align: $rightPart-header__text-align;
+  .rightPart__header {
+    @include properties(
+      $rightPart__margin,
+      $rightPart-header__padding,
+      none,
+      none,
+      false
+    );
+    text-align: $rightPart-header__text-align;
+  }
+
+  .rightPart__tags {
+    margin: $rightPart__margin;
+
+    span {
+      @include properties(
+        $rightPart-Tags-span__margin,
+        $rightPart-Tags-span__padding,
+        none,
+        none,
+        false
+      );
     }
+  }
 
-    .rightPart__tags {
-        margin: $rightPart__margin;
-        
-        span {
-            @include properties($rightPart-Tags-span__margin, $rightPart-Tags-span__padding, none, none);
-        }
-    }
+  .rightPart__info {
+    @include properties(
+      $rightPart__margin,
+      $rightPart-info__padding,
+      $rightPart-info__height,
+      $rightPart-info__width,
+      false
+    );
+    display: grid;
+    grid-template-columns: $rightPart-info__grid-template-columns-rows;
+    grid-template-rows: $rightPart-info__grid-template-columns-rows;
+  }
 
+  .rightPart__lore {
+    @include properties(
+      $rightPart__margin,
+      $rightPart-lore__padding,
+      none,
+      $rightPart-lore__width,
+      false
+    );
+    text-indent: 2vw;
+  }
 
-    .rightPart__info {
-        @include properties($rightPart__margin, $rightPart-info__padding, $rightPart-info__height, $rightPart-info__width);
-        display: grid;
-        grid-template-columns: $rightPart-info__grid-template-columns-rows;
-        grid-template-rows: $rightPart-info__grid-template-columns-rows;
-    }
-
-    .rightPart__lore{
-        @include properties($rightPart__margin, $rightPart-lore__padding, none, $rightPart-lore__width);
-    }
-
-    .rightPart__Spells {
-        @include properties($rightPart__margin, 1.5vh, none, 95%)
-    }
+  .rightPart__Spells {
+    @include properties(
+      $rightPart__margin,
+      $rightPart-Spells__padding,
+      none,
+      $rightPart-Spells__width,
+      true
+    );
+  }
 }

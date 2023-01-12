@@ -5,12 +5,12 @@ $content__grid-template-rows: 95vh;
 $content__grid-template-columns: 35vw 65vw;
 
 .content {
-    height: $content__height;
-    background-repeat: $content__background-repeat;
-    background-size: $content__background-size;
-    
-    display: grid;
-    grid-template-areas: "left-part right-part";
-    grid-template-rows: $content__grid-template-rows;
-    grid-template-columns: $content__grid-template-columns;
+  height: $content__height;
+  background-repeat: $content__background-repeat;
+  background-size: $content__background-size;
+
+  display: grid;
+  grid-template-areas: "left-part right-part";
+  grid-template-rows: $content__grid-template-rows;
+  grid-template-columns: $content__grid-template-columns;
 }

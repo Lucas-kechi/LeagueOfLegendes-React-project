@@ -1,5 +1,5 @@
 $information__padding-right: 1vw;
-$information-span__margin: .3vh 0 .3vh 0;
+$information-span__margin: 0.3vh 0 0.3vh 0;
 $information-span__border: 1px solid gold;
 $information-span__flex: 1 0;
 $information-on__background-color: green;
@@ -8,15 +8,14 @@ $information-on__background-color: green;
   display: flex;
   justify-content: space-between;
   padding-right: $information__padding-right;
-  
+
   span {
     margin: $information-span__margin;
     border: $information-span__border;
     flex: $information-span__flex;
-  }  
-  
-  .on {
-      background-color: $information-on__background-color;
   }
-  
+
+  .on {
+    background-color: $information-on__background-color;
+  }
 }
