@@ -37,7 +37,7 @@ export function ContentRightPart(props) {
           <ChampionSpells
             key={el.id}
             name={el.name}
-            description={el.tooltip}
+            description={el.description}
             levelTip={el.leveltip}
             maxRank={el.maxrank}
             cooldownBurn={el.cooldownBurn}

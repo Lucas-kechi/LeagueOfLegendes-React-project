@@ -1,7 +1,7 @@
 import "./style.scss";
 
 export const ChampionSpells = (props) => {
-  const PASSIVE_COMPONENT = (
+  const PASSIVE_COMPONENT_HEADER = (
     <>
       <img
         className="skill__header__leftPart__image"
@@ -13,7 +13,7 @@ export const ChampionSpells = (props) => {
     </>
   );
 
-  const SKILLS_COMPONENT = (
+  const SKILLS_COMPONENT_HEADER = (
     <>
       <div className="skill__header__leftPart">
         <img
@@ -26,14 +26,14 @@ export const ChampionSpells = (props) => {
       <div className="skill__header__rightPart"></div>
     </>
   );
-
+    // TODO: Esperar a documentação da API do LOL atualizar na interpretação de spell text.
   return (
     <section className="skill">
       <div className="skill__header">
         <div className="skill__header__leftPart">
           {props.elementFilter === "passive"
-            ? PASSIVE_COMPONENT
-            : SKILLS_COMPONENT}
+            ? PASSIVE_COMPONENT_HEADER
+            : SKILLS_COMPONENT_HEADER}
         </div>
       </div>
       <div className="skill__main">
