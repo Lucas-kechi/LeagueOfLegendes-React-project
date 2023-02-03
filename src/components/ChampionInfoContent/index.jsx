@@ -83,7 +83,7 @@ export function ChampionInfoContent() {
   useEffect(() => {
     const fetchAssync = async () => {
       const response = await fetch(
-        `http://ddragon.leagueoflegends.com/cdn/12.23.1/data/pt_BR/champion/${urlParameter.id}.json`
+        `https://ddragon.leagueoflegends.com/cdn/12.23.1/data/pt_BR/champion/${urlParameter.id}.json`
       );
       const data = await response.json();
 
@@ -112,10 +112,10 @@ export function ChampionInfoContent() {
         setLoadingApi(true);
 
         const SplashResponse = await fetch(
-          `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championInfo.image}_${championInfo.skins[skinIndex].num}.jpg`
+          `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championInfo.image}_${championInfo.skins[skinIndex].num}.jpg`
         );
         const LoadingResponse = await fetch(
-          `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${championInfo.image}_${championInfo.skins[skinIndex].num}.jpg`
+          `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${championInfo.image}_${championInfo.skins[skinIndex].num}.jpg`
         );
 
         const championStatsPerLevel = Object.fromEntries(

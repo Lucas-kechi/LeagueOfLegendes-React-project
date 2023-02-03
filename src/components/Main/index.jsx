@@ -27,7 +27,7 @@ export function Main() {
   useEffect(() => {
     async function getApiAsync() {
       const response = await fetch(
-        "http://ddragon.leagueoflegends.com/cdn/12.23.1/data/pt_BR/champion.json"
+        "https://ddragon.leagueoflegends.com/cdn/12.23.1/data/pt_BR/champion.json"
       );
       const data = await response.json();
       const championsValues = Object.values(data.data);
