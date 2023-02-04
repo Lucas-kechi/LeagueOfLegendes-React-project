@@ -72,7 +72,7 @@ export function Header() {
         <input
           type="text"
           className="header__inputChampion"
-          placeholder="Nome do Campeão"
+          placeholder="Aatrox"
           id="inputChampion"
           onKeyUp={() => onKeyUpFromInput(event)}
           onFocus={() => onFocusFromInput(event)}

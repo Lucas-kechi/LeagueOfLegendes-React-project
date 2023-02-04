@@ -43,3 +43,16 @@ $card-text__padding: 10px;
     padding: $card-text__padding;
   }
 }
+
+@media only screen and (max-width: 361px) {
+  .card {
+    height: 30vh;
+    width: 15vh;
+    padding: 2vh;
+  }
+
+  .card__text{
+    font-size: 2vw;
+  }
+  
+}
