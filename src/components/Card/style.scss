@@ -44,11 +44,11 @@ $card-text__padding: 10px;
   }
 }
 
-@media only screen and (max-width: 361px) {
+@media only screen and (max-width: 412px) {
   .card {
-    height: 30vh;
-    width: 15vh;
-    padding: 2vh;
+    height: 25vh;
+    width: 13vh;
+    padding: 1vh;
   }
 
   .card__text{

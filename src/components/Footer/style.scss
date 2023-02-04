@@ -20,3 +20,15 @@ $footer-icon__border-radius: 20px;
     border-radius: $footer-icon__border-radius;
   }
 }
+
+@media only screen and (max-width: 412px) {
+  .footer {
+    font-size: 1vh;
+    
+    .footer__icon {
+      height: 16px;
+      width: 16px;
+    }
+  }
+
+}

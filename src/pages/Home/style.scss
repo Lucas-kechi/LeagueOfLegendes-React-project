@@ -5,3 +5,9 @@ $header-buttons__border: 3px gold solid;
   grid-template-areas: "header" "main" "footer";
   grid-template-rows: 15vh 80vh 5vh;
 }
+
+@media only screen and (max-width: 412px) {
+  .container {
+    grid-template-rows: 6vh 91vh 3vh;
+  }
+}
